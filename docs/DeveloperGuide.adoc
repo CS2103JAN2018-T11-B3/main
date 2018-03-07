@@ -852,11 +852,23 @@ _{More to be added}_
 .  Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `1.8.0_60` or higher installed.
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+.  Should be intuitive for any user that has experience using an address book (i.e add,delete,sort,list)
+.  Should be able to respond to queries from users within 1 second
+.  Should be able to export database to a spreadsheet .csv format
+.  Should be able to assist the user in better managing his client database by providing a dashboard view of his client information
+.  Should be able to store client's data safely by encryption
+.  Should be able to work without an internet connection
 
 _{More to be added}_
 
 [appendix]
 == Glossary
+User
+An User is defined as the insurance agent.
+Mainstream OS
+A mainstream OS includes Windows, Linux, Unix and OS-X
+Client Information
+Client Information includes all personal details and metrics.
 
 [[mainstream-os]] Mainstream OS::
 Windows, Linux, Unix, OS-X
