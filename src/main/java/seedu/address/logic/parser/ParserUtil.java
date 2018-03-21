@@ -10,6 +10,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.model.group.Group;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -165,4 +166,14 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    /**
+     * Parses a {@code Optional<String> group} into an {@code Optional<Group>} if {@code group} is present.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     */
+    public static Optional<Group> parseGroup (Optional<String> group) throws IllegalValueException {
+        requireNonNull(group);
+        return group.isPresent() ? Optional.of(parseEmail(group.get())) : Optional.empty();
+    }
+
 }

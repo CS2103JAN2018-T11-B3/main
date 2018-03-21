@@ -17,6 +17,8 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
+import seedu.address.model.group.Group;
+import seedu.address.model.group.UniqueGroupList;
 
 /**
  * Wraps all data at the address-book level
@@ -24,6 +26,7 @@ import seedu.address.model.tag.UniqueTagList;
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
+    private final UniqueGroupList groups;
     private final UniquePersonList persons;
     private final UniqueTagList tags;
 
@@ -37,6 +40,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     {
         persons = new UniquePersonList();
         tags = new UniqueTagList();
+        groups = new UniqueGroupList();
     }
 
     public AddressBook() {}
@@ -58,6 +62,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void setTags(Set<Tag> tags) {
         this.tags.setTags(tags);
     }
+
+    public void setGroups(List<Group> persons){ this.groups.setGroups(groups);}
 
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
