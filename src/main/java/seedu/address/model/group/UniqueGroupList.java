@@ -47,14 +47,14 @@ public class UniqueGroupList implements Iterable<Group> {
         assert CollectionUtil.elementsAreUnique(internalList);
     }
 
-    /*public void setGroups(List<? extends Group> groups) throws DuplicateGroupException {
+    public void setGroups(List<? extends Group> groups) throws DuplicateGroupException {
         final UniqueGroupList replacement = new UniqueGroupList();
         for (final Group group : groups) {
             replacement.add(group);
         }
         setGroups(replacement);
     }
-    */
+    
     /**
      * Ensures every tag in the argument list exists in this object.
      */
