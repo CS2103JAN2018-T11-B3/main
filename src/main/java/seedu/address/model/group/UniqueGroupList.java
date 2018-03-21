@@ -54,7 +54,6 @@ public class UniqueGroupList implements Iterable<Group> {
         }
         setGroups(replacement);
     }
-    
     /**
      * Ensures every tag in the argument list exists in this object.
      */
