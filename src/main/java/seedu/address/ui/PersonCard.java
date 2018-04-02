@@ -44,6 +44,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label insurance;
     @FXML
+    private Label group;
+    @FXML
     private FlowPane tags;
 
     public PersonCard(Person person, int displayedIndex) {
@@ -66,6 +68,7 @@ public class PersonCard extends UiPart<Region> {
         else {
             insurance.setText(person.getInsurance().insuranceName);
         }
+        group.setText(person.getGroup().groupName);
         startTag(person);
     }
 
