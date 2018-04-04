@@ -154,8 +154,8 @@
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Restores reInsurance to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code> Alias: <code>u</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -165,7 +165,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify reInsurance&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -200,7 +200,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 <h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+Format: <code>redo</code> Alias: <code>r</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -542,9 +542,129 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">Insurance with information of commission</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><strong>Since V1.4</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Insurance is tagged to a person with the format: "INSURANCE[COMMISSION]"</p>
+</li>
+<li>
+<p>A particular client is tagged to 0 or more insurance plan, along with each insurance plan, user should input commission inside square bracket ("[]")</p>
+</li>
+<li>
+<p>Total commission yield by a particular client is then caclulated and displayed in the personCard.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-insurance-tag"><a class="link" href="#aspect-implementation-of-insurance-tag">Aspect: Implementation of Insurance tag</a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Create an Insurance class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Distinction between insurance and person, Insurance can exist without person.</p>
+</li>
+<li>
+<p>Cons: Harder to implement and possibly of a overlapping test cases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let insurance be under a special tag class and create subsequent child classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and direct and not distinct objective of a tag/insurance.</p>
+</li>
+<li>
+<p>Cons: Harder to handle error (unsure of what cause the bug).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-calculating-the-total-commission-per-client"><a class="link" href="#aspect-calculating-the-total-commission-per-client">Aspect: Calculating the total commission per client</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, everytime a insurance is added it will add to existing commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to calculate client based commission</p>
+</li>
+<li>
+<p>Cons: May be difficult to get overall total commission</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong>Create a storage to keep all commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to calculate overall total commission</p>
+</li>
+<li>
+<p>Cons: Difficult to allocate commission to their respective client.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-identify-top-clients"><a class="link" href="#aspect-identify-top-clients">Aspect: Identify top clients</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Sort by commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement</p>
+</li>
+<li>
+<p>Cons: Difficult to view ranking of individual insurance plan (e.g top Health plan client)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Colour code top few client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can sort by insurance plan to know if client belong to that category</p>
+</li>
+<li>
+<p>Cons: Difficult to implement</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -561,7 +681,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-21 14:13:38 UTC
+Last updated 2018-04-04 17:53:29 UTC
 </div>
 </div>
 </body>

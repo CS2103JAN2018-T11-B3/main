@@ -5,20 +5,20 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AddressBook Level 4 - User Guide</title>
+<title>reInsurance - User Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - User Guide</h1>
+<h1>reInsurance - User Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>T11-B3</code>      Since: <code>Jan 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -31,17 +31,20 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#getting-count-of-reinsurance-size-code-count-code">3.4. Getting count of reInsurance size : <code>count</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
+<li><a href="#locating-persons-by-tag-code-findtag-code">3.7. Locating persons by tag: <code>findtag</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#export-data-code-export-code">3.14. Export data : <code>export</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -53,7 +56,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>reInsurance is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, reInsurance is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, reInsurance can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -79,10 +82,10 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>reInsurance.jar</code> <a href="https://github.com/CS2103JAN2018-T11-B3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your reInsurance application.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -104,7 +107,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/09-09-1995</code> : adds a contact named <code>John Doe</code> to the reInsurance.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -151,14 +154,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>help</code>, Alias: <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a person to reInsurance<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [d/APPOINTMENT] [t/TAG] [i/INSURANCE[COMMISSION]] [g/GROUP] &#8230;&#8203;</code> Alias: <code>a</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -167,7 +170,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A person can have any number of tags, appointment and insurance plans (including 0)
 </td>
 </tr>
 </table>
@@ -178,10 +181,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/09-12-1994 i/Health[100] g/family</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 b/29-10-1992 g/friends i/General t/criminal</code></p>
 </li>
 </ul>
 </div>
@@ -189,15 +192,22 @@ A person can have any number of tags (including 0)
 <div class="sect2">
 <h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all persons in reInsurance.<br>
+Format: <code>list</code> Alias: <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="getting-count-of-reinsurance-size-code-count-code"><a class="link" href="#getting-count-of-reinsurance-size-code-count-code">3.4. Getting count of reInsurance size : <code>count</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Returns the number of client in reInsurance
+Format: <code>count</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing person in the reInsurance.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [d/APPOINTMENT] [t/TAG] [i/INSURANCE]&#8230;&#8203;</code> Alias: <code>e</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -239,10 +249,10 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code> Alias: <code>f</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -284,10 +294,55 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="locating-persons-by-tag-code-findtag-code"><a class="link" href="#locating-persons-by-tag-code-findtag-code">3.7. Locating persons by tag: <code>findtag</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Finds persons whose names contain any of the given tags.<br>
+Format: <code>findtag KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>The order of the tags does not matter. e.g. <code>Friends Colleagues</code> will match <code>Colleagues Friends</code></p>
+</li>
+<li>
+<p>Only the tag is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Friend</code> will not match <code>Friends</code></p>
+</li>
+<li>
+<p>Persons matching at least one tag will be returned (i.e. <code>OR</code> search).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Friends</code><br>
+Returns any person having tag <code>Friends</code></p>
+</li>
+<li>
+<p><code>find Friends Colleagues Neighbours</code><br>
+Returns any person having tags <code>Friends</code>, <code>Colleagues</code>, or <code>Neighbours</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified person from reInsurance.<br>
+Format: <code>delete INDEX</code> Alias: <code>d</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -314,7 +369,7 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+Deletes the 2nd person in the reInsurance.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -325,10 +380,10 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
-Format: <code>select INDEX</code></p>
+Format: <code>select INDEX</code> Alias: <code>s</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -355,7 +410,7 @@ Format: <code>select INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+Selects the 2nd person in reInsurance.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -366,7 +421,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -387,10 +442,10 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Restores reInsurance to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code> Alias: <code>u</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -400,7 +455,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify reInsurance&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -432,10 +487,10 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+Format: <code>redo</code> Alias: <code>r</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -458,34 +513,99 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <code>undo</code> (reverses the <code>clear</code> command)<br>
 <code>undo</code> (reverses the <code>delete 1</code> command)<br>
 <code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<code>redo</code> (reapplies the <code>clear</code> command)<br>
+=== Sorting all entries : <code>sort</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Sort all entries from reInsurance by given condition in lexicographical order.<br>
+Format: <code>sort</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from reInsurance.<br>
+Alias: <code>c</code><br>
+Format: <code>clear</code> Alias: <code>c</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">3.14. Export data : <code>export</code></a></h3>
+<div class="paragraph">
+<p>Exports the data from the specified export type (case insensitive).<br>
+Format: <code>export EXPORT_TYPE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export calendar</code><br>
+Exports the data on the calendar to Google Calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When running this command, you will be prompted to enter your credentials to your Google Account.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>export portfolio</code><br>
+Exports the data in the portfolio to a .csv file</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Coming in v2.0, there will be more options on the types of data to export.</p>
+</li>
+<li>
+<p>As of v1.4, the application handles the command for the portfolio and calendar.</p>
+</li>
+<li>
+<p>Default destination file is at <code>data/portfolio.csv</code> for the <code>export portfolio</code> command.</p>
+</li>
+<li>
+<p>The default calendar created in Google Calendars is titled <code>reInsurance Events</code>, which contains birthdays and appointments.</p>
+</li>
+<li>
+<p>Coming in v2.0, the user will be able to specify what the created calendar is called.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>reInsurance data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -497,7 +617,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
 </div>
 </div>
 </div>
@@ -508,7 +628,7 @@ There is no need to save manually.</p>
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -551,7 +671,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-21 14:13:38 UTC
+Last updated 2018-04-04 17:53:29 UTC
 </div>
 </div>
 </body>

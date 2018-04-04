@@ -5,14 +5,14 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AddressBook Level 4 - Developer Guide</title>
+<title>reInsurance - Developer Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - Developer Guide</h1>
+<h1>reInsurance - Developer Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -45,9 +45,13 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#notifications-with-clients">3.2. Notifications with Clients</a></li>
+<li><a href="#sort-command">3.3. Sort command</a></li>
+<li><a href="#group-feature">3.4. Group feature</a></li>
+<li><a href="#insurance-with-information-of-commission">3.5. Insurance with information of commission</a></li>
+<li><a href="#exporting">3.6. Exporting</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -85,12 +89,11 @@
 <li><a href="#use-cases">Appendix D: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -398,7 +401,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the Address Book data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the reInsurance data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
 </td>
 </tr>
 </table>
@@ -526,7 +529,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the reInsurance data.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -557,7 +560,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in xml format and read it back.</p>
+<p>can save the reInsurance data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -869,20 +872,479 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="notifications-with-clients"><a class="link" href="#notifications-with-clients">3.2. Notifications with Clients</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The idea for this feature is to allow users to recieve notifications for matters regarding their clients.
+This is so that the user will be able to be reminded of matters regarding their many clients and not lose track of events.
+A calendar view also provided so that it is easier for the user to have a good overview of the upcoming events as well as events in the month.</p>
+</div>
+<div class="paragraph">
+<p>Appointments and Birthdays will be created as a class on it&#8217;s own. It is then added as an attribute of the person class.
+The calendar view will then check all persons for any appointments and birthday and display them accordingly.
+It will then trigger a notification when it is the day of the event.</p>
+</div>
+<div class="paragraph">
+<p>Appointments prefix "d/" has been added to the add command so that users can add appointments with the person.
+Birthday prefix "b/" has been added to the add command so that users can add the birthday of clients.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-appointments-since-v1-2"><a class="link" href="#aspect-implementation-of-appointments-since-v1-2">Aspect: Implementation of Appointments (Since v1.2)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Appointments as an attribute of Person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Appointments are merged with existing commands as a prefix</p>
+</li>
+<li>
+<p>Cons: Unable to add more attributes to appointment without breaking current convension</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Appointments as class with Person as an attribute</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Other attributes can be added to appointments e.g Location</p>
+</li>
+<li>
+<p>Cons: A lot of restructuring of existing code required</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-viewing-appointments-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-viewing-appointments-coming-in-v2-0">Aspect: Implementation of viewing Appointments (Coming in V2.0)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation View as Calendar View</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to have an overview for the current month</p>
+</li>
+<li>
+<p>Cons: Requires more display space and limits views by month</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of View as List</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to integrate with current set up and can view more information in a smaller space</p>
+</li>
+<li>
+<p>Cons: Have to read each date of each event to get a general feel of the upcoming events</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-notifications-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-notifications-coming-in-v2-0">Aspect: Implementation of Notifications (Coming in v2.0)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Notifications as a side panel</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Notifications are neatly organised and easily reviewed</p>
+</li>
+<li>
+<p>Cons: Notifications might be missed if user does not review them</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Notifications as a Popup Alert</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requires user interaction therefore it ensures that user has been notified</p>
+</li>
+<li>
+<p>Cons: Pop ups might be unwelcomed as they can interupt current user tasks</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="sort-command"><a class="link" href="#sort-command">3.3. Sort command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an not undoable command.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sortCommand operation works. In the sequence diagram, the sortCommand is passed to the AddressBookParser, which executes the parseCommand method. The Model then executes the sortedFilteredPersonList,  which sorts the internalList using a comparator.</p>
+</div>
+<div class="paragraph">
+<p>Suppose that the user has a list of clients in the application as shown in the diagram below, after executing the command, the list of clients will be as follows.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-sortcommand"><a class="link" href="#aspect-implementation-of-sortcommand">Aspect: Implementation of SortCommand</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Implementation of SortCommand as a command that is not undoable</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The SortCommand will be easier for developers to implement this way.</p>
+</li>
+<li>
+<p>Cons: Users that wish to revert the changes made might not be able to do so and this will decrease the usability of the program.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (Prospective):</strong> Implementation of SortCommand as a undoable command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users that wish to revert the changes made will be able to do so, thus increasing the usability of the program.</p>
+</li>
+<li>
+<p>Cons: The SortCommand will be harder for developers to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-parameters-of-the-sortcommand"><a class="link" href="#aspect-parameters-of-the-sortcommand">Aspect: Parameters of the SortCommand</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Implementation of SortCommand as a command that only allows users to sort clients according to their names in lexicographical order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The SortCommand will be easier for developers to implement as it only needs to sort the names of the internalList.</p>
+</li>
+<li>
+<p>Cons: Usability is low as the client might wish to sort clients according to their commissions earned.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (Prospective):</strong> Implementation of SortCommand as a command that allows users to sort clients according to multiple parameters such as commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This will allow the user to have a more organised view of all data in the program.</p>
+</li>
+<li>
+<p>Cons: Although this might increase usability, the usability might actually decrease as the user will need to remember more commands for the SortCommand, which might not be ideal since this is a command line style address book.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="group-feature"><a class="link" href="#group-feature">3.4. Group feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Group feature will allow users to group their clients according to a specified group. Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the group feature is being implemented.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-group"><a class="link" href="#aspect-implementation-of-group">Aspect: Implementation of Group</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Requires users to specify the group of the client when adding a new client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will easier for developers to implement this way.</p>
+</li>
+<li>
+<p>Cons: Users of the application might not know which group to place the clients into when adding a new client.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2:</strong> Allow users to add the group of the client after they have added a new client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will have time to decide how to group their clients after a period of time. i.e If the user wants to group their clients according to their commissions paid, it can only be done so after the client has been with the user for a period of time.</p>
+</li>
+<li>
+<p>Cons: Some clients might not have any groupings. Developer will need an extra command to list those clients without any groupings.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">3.5. Insurance with information of commission</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.4</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Insurance is tagged to a person with the format: "INSURANCE[COMMISSION]"</p>
+</li>
+<li>
+<p>A particular client is tagged to 0 or more insurance plan, along with each insurance plan, user should input commission inside square bracket ("[]")</p>
+</li>
+<li>
+<p>Total commission yield by a particular client is then caclulated and displayed in the personCard.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-insurance-tag"><a class="link" href="#aspect-implementation-of-insurance-tag">Aspect: Implementation of Insurance tag</a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Create an Insurance class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Distinction between insurance and person, Insurance can exist without person.</p>
+</li>
+<li>
+<p>Cons: Harder to implement and possibly of a overlapping test cases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let insurance be under a special tag class and create subsequent child classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and direct and not distinct objective of a tag/insurance.</p>
+</li>
+<li>
+<p>Cons: Harder to handle error (unsure of what cause the bug).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-calculating-the-total-commission-per-client"><a class="link" href="#aspect-calculating-the-total-commission-per-client">Aspect: Calculating the total commission per client</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, everytime a insurance is added it will add to existing commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to calculate client based commission</p>
+</li>
+<li>
+<p>Cons: May be difficult to get overall total commission</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong>Create a storage to keep all commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to calculate overall total commission</p>
+</li>
+<li>
+<p>Cons: Difficult to allocate commission to their respective client.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-identify-top-clients"><a class="link" href="#aspect-identify-top-clients">Aspect: Identify top clients</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Sort by commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement</p>
+</li>
+<li>
+<p>Cons: Difficult to view ranking of individual insurance plan (e.g top Health plan client)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Colour code top few client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can sort by insurance plan to know if client belong to that category</p>
+</li>
+<li>
+<p>Cons: Difficult to implement</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting"><a class="link" href="#exporting">3.6. Exporting</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The export command allows the user to export the data that is normally stored within the application to an outside, nicely formatted manner.
+The two main pieces of data to export are the information about the persons in the reInsurance application as well as the birthdays and appointments of each person.</p>
+</div>
+<div class="paragraph">
+<p>In terms of implementation, the export command works in similar fashion to most commands. The important part is the EXPORT_TYPE field which is discussed in section <code>3.6.3</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Separate the export functionality away from the rest of the commands.</p>
+</li>
+<li>
+<p>Create a button that exports the data for the user</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">3.6.3. Aspect: Parameters of export</a></h4>
+<div class="paragraph">
+<p><strong>Since v1.4</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+</li>
+<li>
+<p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
+</li>
+<li>
+<p>To add another export type to be caught by the user&#8217;s input, simply add another value to the enum class mentioned above.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>After adding an export type, an export function for that specific type should be created in the <code>seedu.address.model.AddressBook</code> class.</p>
+</li>
+<li>
+<p>After adding the method in <code>AddressBook</code> class, a case should be added to the <code>seedu.address.model.ModelManager</code> class to handle when the export type is equivalent to the newly added one.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Coming in v2.0</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>export</code> function will need to be abstracted out in a way that it can handle all the types of exports allowed by the command.</p>
+</li>
+<li>
+<p>The export file type should be controlled by the arguments of the command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: <code>export portfolio csv</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Should download a portfolio as a csv file onto the user&#8217;s computer</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add another argument for specifying the output file name</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -913,7 +1375,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1161,7 +1623,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="sect2">
 <h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">6.6. Managing Dependencies</a></h3>
 <div class="paragraph">
-<p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
+<p>A project often depends on third-party libraries. For example, reInsurance depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)</p>
 </div>
@@ -1903,6 +2365,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>is an insurance agent</p>
+</li>
+<li>
 <p>has a need to manage a significant number of contacts</p>
 </li>
 <li>
@@ -1955,32 +2420,224 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track the client</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add multiple client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track the number of clients I have</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove my client</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the client based on different category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">directly get the type of data I want</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add my client’s personal detail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know more about them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update my client&#8217;s personal detail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep their information up to date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search for a single client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">narrow down to the client I am interested in in that time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear the address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start on a clean slate</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit my application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit the application once I am done with it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add remarks of my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember my personal comment of the client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add the insurance plans that my clients are committed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track what plans he/she has</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add in how much commission I am getting off my client’s insurance plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculate my commission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the commission I get off a client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how much I am earning off them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the total commission I am getting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my total earning</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rank my clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to serve them better</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">group my clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to manage the different groups differently</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add the birthday date of my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my client&#8217;s birthday</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit the birthday date of my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update it in case I got their birthday wrong at a earlier date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add the appointment date I have with my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule a meeting date with a client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit the appointment date I have with my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make changes to the meeting date with a client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete the appointment date I have with my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cancel a meeting date with a client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the appointment date I have with my client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the next meeting with a client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view appointment on the calendar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a more organized view of my schedule and at the same time plan for future appointment</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">export a calendar of my appointments and client birthdays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can use the data on a calendar outside of the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive notification 3 day prior to my client&#8217;s appointment date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure that I will not miss it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check the history of my command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know what I have done</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo the previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve lost information caused by accidents</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo the undo actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trace what I have undid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a new address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use it for other purposes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">export a portfolio of my clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can use the data of the application elsewhere</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hide some of my client&#8217;s information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimize the leak of my client&#8217;s information</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name (by default)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the address book in an organized manner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive notification of my client&#8217;s birthday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep in touch with my clients</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add in password access to my address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be viewed/edited only by allowed users</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change my password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">further secure my address book</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forget password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a backup plan</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">request access to other address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seek potential customer from leaving colleague</p></td>
 </tr>
 </tbody>
 </table>
@@ -1993,7 +2650,7 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>ClientBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
 <div class="paragraph">
@@ -2005,13 +2662,13 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to list persons</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>reInsurance shows a list of persons</p>
 </li>
 <li>
 <p>User requests to delete a specific person in the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>reInsurance deletes the person</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2034,7 +2691,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. ClientBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2043,6 +2700,274 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 </ul>
+</div>
+<h2 id="use-case-add-person" class="discrete">Use case: Add person</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request to add person by specifying their details</p>
+</li>
+<li>
+<p>ClientBook adds the person</p>
+</li>
+<li>
+<p>ClientBook shows success message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Person already exists in ClientBook.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The given input is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="use-case-edit-person" class="discrete">Use case: Edit person</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit person by entering person’s name and new parameter(s)</p>
+</li>
+<li>
+<p>ClientBook shows confirm message.</p>
+</li>
+<li>
+<p>User confirms to edit the Person.</p>
+</li>
+<li>
+<p>ClientBook edits the Person’s given parameter(s).</p>
+</li>
+<li>
+<p>ClientBook shows the edited person entry.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Person does not exist in the ClientBook.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The given input is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="use-case-add-appointment" class="discrete">Use case: Add Appointment</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add appointment with person by entering person&#8217;s name and appointment date and time.</p>
+</li>
+<li>
+<p>ClientBook adds the appointment.</p>
+</li>
+<li>
+<p>ClientBook shows the added appointment entry</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Person does not exist in the ClientBook.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The given date is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="use-case-delete-appointment" class="discrete">Use case: Delete Appointment</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete appointment with person by entering person&#8217;s name.</p>
+</li>
+<li>
+<p>ClientBook shows list of appointments.</p>
+</li>
+<li>
+<p>User requests to delete a specific appointment in the list.</p>
+</li>
+<li>
+<p>ClientBook deletes the appointment.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. ClientBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="use-case-view-commission-from-client" class="discrete">Use case: View Commission from Client</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view commission of client by entering person&#8217;s name.</p>
+</li>
+<li>
+<p>ClientBook shows commission earned from client.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Person does not exist in the ClientBook.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. ClientBook shows error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="use-case-view-total-commission" class="discrete">Use case: View Total Commission</h2>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view total commission.</p>
+</li>
+<li>
+<p>AddressBook shows total commission.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
@@ -2063,10 +2988,37 @@ for <code>RemarkCommandParser</code>.</p>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>Should come with open source code.</p>
+</li>
+<li>
+<p>Should be able to be used with any OS.</p>
+</li>
+<li>
+<p>Should allow the user to not have to use their mouse.</p>
+</li>
+<li>
+<p>Should be secure from users trying to enter malicious commands.</p>
+</li>
+<li>
+<p>Should be intuitive for any user that has experience using an address book (i.e add,delete,sort,list)</p>
+</li>
+<li>
+<p>Should be able to respond to queries from users within 1 second</p>
+</li>
+<li>
+<p>Should be able to export portfolio of clients to a .csv file</p>
+</li>
+<li>
+<p>Should be able to export calendar of appointments and client birthdays to a .ics file</p>
+</li>
+<li>
+<p>Should be able to assist the user in better managing his client database by providing a dashboard view of his client information</p>
+</li>
+<li>
+<p>Should be able to work without an internet connection</p>
+</li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2075,9 +3027,17 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dt class="hdlist1"><a id="User"></a> User</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>An User is defined as the insurance agent</p>
+</dd>
+<dt class="hdlist1"><a id="mainstream-OS"></a> Mainstream OS</dt>
+<dd>
+<p>A mainstream OS includes Windows, Linux, Unix and OS-X</p>
+</dd>
+<dt class="hdlist1"><a id="client-information"></a> Clients&#8217;s Information</dt>
+<dd>
+<p>Client&#8217;s Information includes all personal details and metrics</p>
 </dd>
 <dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
 <dd>
@@ -2088,44 +3048,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2143,7 +3066,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2181,7 +3104,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2213,7 +3136,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2237,7 +3160,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-21 14:13:38 UTC
+Last updated 2018-04-04 17:53:29 UTC
 </div>
 </div>
 </body>
