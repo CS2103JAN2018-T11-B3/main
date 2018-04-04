@@ -10,7 +10,7 @@ import seedu.address.model.person.Person;
  * Sorts all persons in the address book to the user.
  */
 public class SortCommand extends UndoableCommand {
-
+    //@@author limzk1994
     public static final String COMMAND_WORD = "sort";
 
     public static final String MESSAGE_SUCCESS = "Sorted all clients!";
@@ -27,4 +27,5 @@ public class SortCommand extends UndoableCommand {
         model.sortFilteredPersonList(shownList);
         return new CommandResult(MESSAGE_SUCCESS);
     }
+    //@@author limzk1994
 }

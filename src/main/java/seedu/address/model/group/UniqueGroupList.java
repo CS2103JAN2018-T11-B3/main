@@ -18,6 +18,8 @@ import seedu.address.commons.util.CollectionUtil;
  *
  * @see Group#equals(Object)
  */
+//@@author limzk1994
+
 public class UniqueGroupList implements Iterable<Group> {
 
     private final ObservableList<Group> internalList = FXCollections.observableArrayList();
@@ -127,4 +129,6 @@ public class UniqueGroupList implements Iterable<Group> {
         super("Operation would result in duplicate groups");
         }
     }
+    //@@author limzk1994
+
 }
