@@ -406,7 +406,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 
 // tag::sort[]
 === Sort command
-*Since v1.4*
+
 ==== Current Implementation
 The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an not undoable command.
 
@@ -438,7 +438,7 @@ Suppose that the user has a list of clients in the application as shown in the d
 
 // tag::group[]
 === Group feature
-*Since v1.4*
+
 ==== Current Implementation
 The Group feature will allow users to group their clients according to a specified group. Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.
 
@@ -457,7 +457,7 @@ The following sequence diagram shows how the group feature is being implemented.
 
 // end::group[]
 
-// tag::dataencryption[]
+// tag::commission[]
 === [Proposed] Top Insurance Commission tag
 ==== Intro
 
@@ -495,11 +495,12 @@ To do this, a commission storage will be created to store existing commission, a
  ** Pros: TBC
  ** Cons: TBC
 
-// end::dataencryption[]
+// end::commission[]
 
-// tag::encryption[]
+
+// tag:: dataencryption[]
 === Data Encryption
-*Since v1.4*
+
 ==== Current Implementation
 Client’s data is stored in an XML file in plain text is not secure, hence the need to encrypt XML data.
 
@@ -511,7 +512,7 @@ The current implementation is just a proof of concept and will be improved upon 
 
 ===== Aspect: Implementation of SecretKey
 
-* **Alternative 1 (Current):** SecretKey will be stored in the same location as the XML file
+* **Alternative 1:** SecretKey will be stored in the same location as the XML file
 ** Pros: Data Encryption will be easier for developers to implement this way.
 ** Cons: Akin to not having encrypted the file since the key is exposed
 * **Alternative 2 (Prospective):** Use the Java Cryptography Extension KeyStore
@@ -527,7 +528,9 @@ The current implementation is just a proof of concept and will be improved upon 
 ** Pros: Using 128-bits encryption will be much faster and requires less computation resources
 ** Cons: Less stronger but still secure encryption
 
-// end::encryption[]
+// end:: dataencryption[]
+
+
 === Exporting
 
 We are creating export functionality so that the users of the application can take the data that is being locally stored and download it onto their personal computer.
