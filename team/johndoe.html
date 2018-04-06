@@ -541,132 +541,6 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">Insurance with information of commission</a></h3>
-<div class="paragraph">
-<p><strong>Since V1.4</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Insurance is tagged to a person with the format: "INSURANCE[COMMISSION]"</p>
-</li>
-<li>
-<p>A particular client is tagged to 0 or more insurance plan, along with each insurance plan, user should input commission inside square bracket ("[]")</p>
-</li>
-<li>
-<p>Total commission yield by a particular client is then caclulated and displayed in the personCard.</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-implementation-of-insurance-tag"><a class="link" href="#aspect-implementation-of-insurance-tag">Aspect: Implementation of Insurance tag</a></h5>
-<div class="imageblock">
-<div class="content">
-<img src="../images/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1(current choice):</strong> Create an Insurance class</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Distinction between insurance and person, Insurance can exist without person.</p>
-</li>
-<li>
-<p>Cons: Harder to implement and possibly of a overlapping test cases.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Let insurance be under a special tag class and create subsequent child classes.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement and direct and not distinct objective of a tag/insurance.</p>
-</li>
-<li>
-<p>Cons: Harder to handle error (unsure of what cause the bug).</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-calculating-the-total-commission-per-client"><a class="link" href="#aspect-calculating-the-total-commission-per-client">Aspect: Calculating the total commission per client</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, everytime a insurance is added it will add to existing commission</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to calculate client based commission</p>
-</li>
-<li>
-<p>Cons: May be difficult to get overall total commission</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong>Create a storage to keep all commission</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to calculate overall total commission</p>
-</li>
-<li>
-<p>Cons: Difficult to allocate commission to their respective client.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-identify-top-clients"><a class="link" href="#aspect-identify-top-clients">Aspect: Identify top clients</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1(current choice):</strong> Sort by commission</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement</p>
-</li>
-<li>
-<p>Cons: Difficult to view ranking of individual insurance plan (e.g top Health plan client)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Colour code top few client</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Can sort by insurance plan to know if client belong to that category</p>
-</li>
-<li>
-<p>Cons: Difficult to implement</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -681,7 +555,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 02:37:00 UTC
+Last updated 2018-04-06 05:27:31 UTC
 </div>
 </div>
 </body>
