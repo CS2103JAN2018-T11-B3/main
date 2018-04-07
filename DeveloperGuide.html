@@ -47,12 +47,13 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#notifications-with-clients">3.2. Notifications with Clients</a></li>
 <li><a href="#sort-command">3.3. Sort command</a></li>
-<li><a href="#group-feature">3.4. Group feature</a></li>
+<li><a href="#group-command">3.4. Group Command</a></li>
 <li><a href="#insurance-with-information-of-commission">3.5. Insurance with information of commission</a></li>
 <li><a href="#data-encryption">3.6. Data Encryption</a></li>
-<li><a href="#exporting">3.7. Exporting</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#password-feature">3.7. Password feature</a></li>
+<li><a href="#exporting">3.8. Exporting</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -997,7 +998,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="sect2">
 <h3 id="sort-command"><a class="link" href="#sort-command">3.3. Sort command</a></h3>
 <div class="paragraph">
-<p><strong>Since V1.4</strong></p>
+<p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
@@ -1082,14 +1083,17 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-feature"><a class="link" href="#group-feature">3.4. Group feature</a></h3>
+<h3 id="group-command"><a class="link" href="#group-command">3.4. Group Command</a></h3>
 <div class="paragraph">
-<p><strong>Since V1.4</strong></p>
+<p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Group feature will allow users to group their clients according to a specified group. Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.</p>
+<p>The Group feature will allow users to group their clients according to a specified group.</p>
+</div>
+<div class="paragraph">
+<p>Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the group feature is being implemented.</p>
@@ -1261,7 +1265,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="sect2">
 <h3 id="data-encryption"><a class="link" href="#data-encryption">3.6. Data Encryption</a></h3>
 <div class="paragraph">
-<p><strong>Since V1.4</strong></p>
+<p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
@@ -1282,20 +1286,20 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> SecretKey will be stored in the same location as the XML file</p>
+<p><strong>Alternative 1(Current):</strong> Using a password based encryption key</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Data Encryption will be easier for developers to implement this way.</p>
+<p>Pros: Data Encryption will be easier for developers to implement this way. Secret key will not be exposed.</p>
 </li>
 <li>
-<p>Cons: Akin to not having encrypted the file since the key is exposed</p>
+<p>Cons: Password for the key is fixed and predetermined.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (Prospective):</strong> Use the Java Cryptography Extension KeyStore</p>
+<p><strong>Alternative 2(Prospective):</strong> Use the Java Cryptography Extension KeyStore</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1315,20 +1319,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (Current):</strong> 256-bits encryption</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: 256-bits provide much stronger encryption</p>
-</li>
-<li>
-<p>Cons: Requires more computation resources and might be a tad slower, albeit negligible</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (Prospective):</strong> 128-bits encryption</p>
+<p><strong>Alternative 1 (Current):</strong> 128-bits encryption</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1340,15 +1331,131 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Alternative 2 (Prospective):</strong> 256-bits encryption</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: 256-bits provide much stronger encryption</p>
+</li>
+<li>
+<p>Cons: Requires more computation resources and might be a tad slower, albeit negligible</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting"><a class="link" href="#exporting">3.7. Exporting</a></h3>
+<h3 id="password-feature"><a class="link" href="#password-feature">3.7. Password feature</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.5</strong></p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>As reInsurance contains sensitive client&#8217;s data, apart from encrypting the XML data files, we have to keep it away from prying eyes.</p>
+</div>
+<div class="paragraph">
+<p>As such, we could implement a password to protect the data. The password will be encrypted and store as a local copy.</p>
+</div>
+<div class="paragraph">
+<p>The password feature will be created as a class of it&#8217;s own. There will be no default password for ease of use of the program.</p>
+</div>
+<div class="paragraph">
+<p>Users can decide whether to set a password. The current implementation is just a proof of concept and will be improved upon in upcoming version.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-password-length-and-strength"><a class="link" href="#aspect-password-length-and-strength">Aspect: Password length and strength</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Password will be stored using Strings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to key in alphanumeric password and developers can encoded the Strings easily.</p>
+</li>
+<li>
+<p>Cons: Harder to implement than a purely numerical password</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Password will be numerical</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Developer will be able to code it easily</p>
+</li>
+<li>
+<p>Cons: Password will be weaker, able to brute force through</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage-of-password-file"><a class="link" href="#aspect-storage-of-password-file">Aspect: Storage of password file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Password will be stored in a encrypted file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: File will be accessible but encrypted, making it safer</p>
+</li>
+<li>
+<p>Cons: Developer will need to encrypt the file</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Password will be stored in a plain text file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to store and retrieve password</p>
+</li>
+<li>
+<p>Cons: Akin to not having a password since it is easily accessible</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Coming in V2.0</strong>
+In the event that the users forget their password, the current implementation does have a way for the users to recover their password.</p>
+</div>
+<div class="paragraph">
+<p>In V2.0, the user&#8217;s password will be sent to the email that is linked to the user&#8217;s calendar if requested.</p>
+</div>
+<div class="paragraph">
+<p>In addition the XML file will be unlocked when the password is entered to allow power users to edit the XML file.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, password will be hashed and salted instead of being encrypted with a key.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting"><a class="link" href="#exporting">3.8. Exporting</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The export command allows the user to export the data that is normally stored within the application to an outside, nicely formatted manner.
 The two main pieces of data to export are the information about the persons in the reInsurance application as well as the birthdays and appointments of each person.</p>
@@ -1358,7 +1465,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1371,7 +1478,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">3.7.3. Aspect: Parameters of export</a></h4>
+<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">3.8.3. Aspect: Parameters of export</a></h4>
 <div class="paragraph">
 <p><strong>Since v1.4</strong></p>
 </div>
@@ -1431,14 +1538,14 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1469,7 +1576,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3254,7 +3361,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 13:45:25 UTC
+Last updated 2018-04-07 07:37:21 UTC
 </div>
 </div>
 </body>
