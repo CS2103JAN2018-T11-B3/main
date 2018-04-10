@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Lim Zheng Kai - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Lim Zheng Kai - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-reinsurance"><a class="link" href="#project-reinsurance">PROJECT: reInsurance</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>reInsurance is customer relationship management software that aims to help insurance agents better manage their clients.
+It is based AddressBook - Level 4 a desktop address book application used for teaching Software Engineering principles.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added *the ability to secure the application via passwords and data encryption *</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to set a password for the application and ensures that the client&#8217;s data is encrypted</p>
+</li>
+<li>
+<p>Justification: Data should not be stored in plaintext. Encrypting the data improves the product significantly because reInsurance contains sensitive client&#8217;s information and commissions earned from clients so only the user should be able to view the contents.
+The implementation of a passwords not only provided a layer of security but a means to prove the identity of the user.</p>
+</li>
+<li>
+<p>Highlights: This feature added a layer of security to the application which was non-existent.
+Data encryption affects how data is stored. The implementation of a password requires an extensive analysis of design alternatives.
+The implementation was challenging as it requires changes to how the application is launched.</p>
+</li>
+<li>
+<p>Credits: Made references from CS2103AUG2017-F11-B1 for password implementation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a sort command that allows users to sort clients according to their names in lexicographical order</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a Group attribute that allows users to group their clients and sort them according to groups</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T11-B3/main/tree/master/collated/functional">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Collated code from releases <code>v1.4</code> - <code>v1.5</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>)</p>
+</li>
+<li>
+<p>Updated the application icon (Pull requests <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/135">#135</a>)</p>
+</li>
+<li>
+<p>Updated the storage component to include a backup API(Pull requests <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/8">#8</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the User Guide to remove unnecessary documentation: <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/58">#58</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W13-B1/main/issues/149">1</a>, <a href="https://github.com/CS2103JAN2018-W13-B1/main/issues/153">2</a>, <a href="https://github.com/CS2103JAN2018-W13-B1/main/issues/168">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="sorting-all-entries-code-sort-code"><a class="link" href="#sorting-all-entries-code-sort-code">Sorting all entries : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sort all entries from reInsurance by given condition in lexicographical order.<br>
+Format: <code>sort</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="group-entries-code-group-code"><a class="link" href="#group-entries-code-group-code">Group entries : <code>group</code></a></h3>
+<div class="paragraph">
+<p>Group all entries under the same group from reInsurance.<br>
+Format: <code>group</code> Alias: <code>g</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group friends</code><br>
+All entries under the group friends will be returned to the user as a list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="password-code-password-code"><a class="link" href="#password-code-password-code">Password : <code>password</code></a></h3>
+<div class="paragraph">
+<p>Set a password for reInsurance as desired. No password required to access the program.<br>
+Format: <code>password</code> Alias: <code>pw</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>reInsurance data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually. Data will be encrypted.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g.<code>select 2</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <code>undo</code></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Export</strong> : <code>export</code></p>
+</li>
+<li>
+<p><strong>Group</strong> : <code>group</code></p>
+</li>
+<li>
+<p><strong>Password</strong> : <code>password</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="sort-command"><a class="link" href="#sort-command">Sort command</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.5</strong></p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an not undoable command.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sortCommand operation works. In the sequence diagram, the sortCommand is passed to the AddressBookParser, which executes the parseCommand method. The Model then executes the sortedFilteredPersonList,  which sorts the internalList using a comparator.</p>
+</div>
+<div class="paragraph">
+<p>Suppose that the user has a list of clients in the application as shown in the diagram below, after executing the command, the list of clients will be as follows.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-sortcommand"><a class="link" href="#aspect-implementation-of-sortcommand">Aspect: Implementation of SortCommand</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Implementation of SortCommand as a command that is not undoable</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The SortCommand will be easier for developers to implement this way.</p>
+</li>
+<li>
+<p>Cons: Users that wish to revert the changes made might not be able to do so and this will decrease the usability of the program.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (Prospective):</strong> Implementation of SortCommand as a undoable command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users that wish to revert the changes made will be able to do so, thus increasing the usability of the program.</p>
+</li>
+<li>
+<p>Cons: The SortCommand will be harder for developers to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-parameters-of-the-sortcommand"><a class="link" href="#aspect-parameters-of-the-sortcommand">Aspect: Parameters of the SortCommand</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current):</strong> Implementation of SortCommand as a command that only allows users to sort clients according to their names in lexicographical order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The SortCommand will be easier for developers to implement as it only needs to sort the names of the internalList.</p>
+</li>
+<li>
+<p>Cons: Usability is low as the client might wish to sort clients according to their commissions earned.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (Prospective):</strong> Implementation of SortCommand as a command that allows users to sort clients according to multiple parameters such as commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This will allow the user to have a more organised view of all data in the program.</p>
+</li>
+<li>
+<p>Cons: Although this might increase usability, the usability might actually decrease as the user will need to remember more commands for the SortCommand, which might not be ideal since this is a command line style address book.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="group-command"><a class="link" href="#group-command">Group Command</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.5</strong></p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Group feature will allow users to group their clients according to a specified group.</p>
+</div>
+<div class="paragraph">
+<p>Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the group feature is being implemented.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-group"><a class="link" href="#aspect-implementation-of-group">Aspect: Implementation of Group</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1:</strong> Requires users to specify the group of the client when adding a new client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will easier for developers to implement this way.</p>
+</li>
+<li>
+<p>Cons: Users of the application might not know which group to place the clients into when adding a new client.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2:</strong> Allow users to add the group of the client after they have added a new client</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will have time to decide how to group their clients after a period of time. i.e If the user wants to group their clients according to their commissions paid, it can only be done so after the client has been with the user for a period of time.</p>
+</li>
+<li>
+<p>Cons: Some clients might not have any groupings. Developer will need an extra command to list those clients without any groupings.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-10 11:34:59 UTC
+</div>
+</div>
+</body>
+</html>
