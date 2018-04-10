@@ -1003,13 +1003,26 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an not undoable command.</p>
+<p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an undoable command.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sortCommand operation works. In the sequence diagram, the sortCommand is passed to the AddressBookParser, which executes the parseCommand method. The Model then executes the sortedFilteredPersonList,  which sorts the internalList using a comparator.</p>
+<p>The following sequence diagram shows how the sortCommand operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sortdia" alt="sortdia" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>In the sequence diagram, the sortCommand is passed to the AddressBookParser, which executes the parseCommand method. The Model then executes the sortedFilteredPersonList,  which sorts the internalList using a comparator.</p>
 </div>
 <div class="paragraph">
 <p>Suppose that the user has a list of clients in the application as shown in the diagram below, after executing the command, the list of clients will be as follows.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sortedlist" alt="sortedlist" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1094,9 +1107,6 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 <div class="paragraph">
 <p>Users will be required to add their clients to a group when adding a new user. Users can change the grouping of their clients later on if they wish to do so.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the group feature is being implemented.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1278,6 +1288,19 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="paragraph">
 <p>The current implementation is just a proof of concept and will be improved upon in upcoming version.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The standard version of the JRE/JDK are under export restrictions. That also includes that some cryptographic algorithms are not allowed to be shipped in the standard version.
+Replace files in library with Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 8. Download the files <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">Here</a>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
@@ -1367,6 +1390,14 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 <div class="paragraph">
 <p>Users can decide whether to set a password. The current implementation is just a proof of concept and will be improved upon in upcoming version.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram shows how the password command works. In the following diagram, the <code>password set/123</code> is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/passdia" alt="passdia" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3361,7 +3392,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 11:34:59 UTC
+Last updated 2018-04-10 14:43:05 UTC
 </div>
 </div>
 </body>
