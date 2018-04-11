@@ -180,15 +180,16 @@ public class AddressBook implements ReadOnlyAddressBook {
         tags.add(t);
     }
 
+    //@@author daviddalmaso
+
     //// export-level operations
 
-    //@@author daviddalmaso
     /**
-     * Exports the current address book to data/portfolio.csv
+     * Exports the current address book to portfolio.csv
      */
     public void exportPortfolio() {
         try {
-            PrintWriter pw = new PrintWriter(new File(userPrefs.getExportPortfolioFilePath()));
+            PrintWriter pw = new PrintWriter(new File(System.getProperty("user.dir"), userPrefs.getExportPortfolioFilePath()));
             StringBuilder sb = new StringBuilder();
             sb.append("Name,Phone,Email,Address,Tags\n");
             for (Person person : persons) {
