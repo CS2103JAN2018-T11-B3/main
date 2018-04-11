@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Jeremy Lee - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Jeremy Lee - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-reinsurance"><a class="link" href="#project-reinsurance">PROJECT: reInsurance</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>reInsurance is a desktop client tracking application used for insurance agent to keep track of his client&#8217;s data. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Insurance features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to add in multiple insurance plans that their client have subscribed to. It also allow the commission that the insurance agent receive from the particular insurance to be added in. Afterwhich, the insurance agent can also view the total commission gained from that particular client.</p>
+</li>
+<li>
+<p>Justification: The main purpose of an insurance agent is to gain more client to subscribe for their insurance plan, as the number of client increase, it may get increasing difficult to handle data&#8217;s of clients thus the need to organize information.</p>
+</li>
+<li>
+<p>Highlights: The implementation of this feature prove to be challenging for the part where multiple component needs to be edited.</p>
+</li>
+<li>
+<p>Credits: Coding forums for the inspiration given.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added alias command for most existing commands such as add, edit, redo, undo etc.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/functional/Sebry9.md">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Monitoring the documentation status of the project.</p>
+</li>
+<li>
+<p>Organise weekly meeting to distribute workload.</p>
+</li>
+<li>
+<p>Project&#8217;s time keeper.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the Tag color scheme (Pull requests <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/6">#6</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="adding-an-insurance-prefix-i"><a class="link" href="#adding-an-insurance-prefix-i">Adding an insurance: Prefix: "i/"</a></h4>
+<div class="paragraph">
+<p>Add one or more insurance to a person<br>
+Format: <code>i/INSURANCE[COMMISSION]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A person can have any number of insurances, to add in the commission of a particular insurance simply put the amount immediately after the insurance name and inside a '[]' or a '{}' bracket.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/Jeremy Lee p/82286918 e/sebry9@gmail.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 i/Health[10] i/General{20}</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">Insurance with information of commission</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.4</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Insurance is tagged to a person with the format: "INSURANCE[COMMISSION]"</p>
+</li>
+<li>
+<p>A particular client is tagged to 0 or more insurance plan, along with each insurance plan, user should input commission inside square bracket ("[]")</p>
+</li>
+<li>
+<p>Total commission yield by a particular client is then caclulated and displayed in the personCard.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-insurance"><a class="link" href="#aspect-implementation-of-insurance">Aspect: Implementation of Insurance</a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Sebry9.jpg/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Create an Insurance class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Distinction between insurance and person, Insurance can exist without person.</p>
+</li>
+<li>
+<p>Cons: Harder to implement and possibly of a overlapping test cases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let insurance be under a special tag class and create subsequent child classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and direct and not distinct objective of a tag/insurance.</p>
+</li>
+<li>
+<p>Cons: Harder to handle error (unsure of what cause the bug).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-calculating-the-total-commission-per-client"><a class="link" href="#aspect-calculating-the-total-commission-per-client">Aspect: Calculating the total commission per client</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, everytime a insurance is added it will add to existing commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to calculate client based commission</p>
+</li>
+<li>
+<p>Cons: May be difficult to get overall total commission</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong>Create a storage to keep all commission</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to calculate overall total commission</p>
+</li>
+<li>
+<p>Cons: Difficult to allocate commission to their respective client.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-11 16:38:30 UTC
+</div>
+</div>
+</body>
+</html>
