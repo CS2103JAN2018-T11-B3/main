@@ -606,7 +606,12 @@ Clearing all entries from reInsurance can also be done by moving the mouse over 
 <h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">3.15. Export data : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports the data from the specified export type (case insensitive).<br>
-Format: <code>export EXPORT_TYPE</code></p>
+Format: <code>export EXPORT_TYPE</code>
+** The <code>EXPORT_TYPE</code> must be either <code>calendar</code> or <code>portfolio</code>.</p>
+</div>
+<div class="paragraph">
+<p>Exports the portfolio to a specified export location.<br>
+Format <code>export portfolio FILENAME</code>.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -626,7 +631,11 @@ Exports the data on the calendar to Google Calendar</p>
 </li>
 <li>
 <p><code>export portfolio</code><br>
-Exports the data in the portfolio to a .csv file</p>
+Exports the data in the portfolio to a <code>portfolio.csv</code> file.</p>
+</li>
+<li>
+<p><code>export portfolio my_data</code><br>
+Exports the data in the portfolio to a <code>my_data.csv</code> file.</p>
 </li>
 </ul>
 </div>
@@ -643,7 +652,7 @@ Exports the data in the portfolio to a .csv file</p>
 <p>Coming in v2.0, there will be more options on the types of data to export.</p>
 </li>
 <li>
-<p>As of v1.4, the application handles the command for the portfolio and calendar.</p>
+<p>As of v1.5rc, the application handles the command for the portfolio and calendar.</p>
 </li>
 <li>
 <p>Default destination file is at <code>portfolio.csv</code> for the <code>export portfolio</code> command.</p>
@@ -800,7 +809,7 @@ e.g. <code>password set/123</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 23:58:59 UTC
+Last updated 2018-04-12 01:22:59 UTC
 </div>
 </div>
 </body>

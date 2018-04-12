@@ -895,7 +895,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-appointments-since-v1-2"><a class="link" href="#aspect-implementation-of-appointments-since-v1-2">Aspect: Implementation of Appointments (Since v1.2)</a></h5>
+<h5 id="aspect-implementation-of-appointments-since-v1-5rc"><a class="link" href="#aspect-implementation-of-appointments-since-v1-5rc">Aspect: Implementation of Appointments (Since v1.5rc)</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1478,12 +1478,15 @@ The two main pieces of data to export are the information about the persons in t
 <div class="sect3">
 <h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">3.8.3. Aspect: Parameters of export</a></h4>
 <div class="paragraph">
-<p><strong>Since v1.4</strong></p>
+<p><strong>Since v1.5rc</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+</li>
+<li>
+<p>If the <code>EXPORT_TYPE</code> is <code>portfolio</code>, then another argument is allowed to specify output filename (Format: <code>export portfolio FILENAME</code>).</p>
 </li>
 <li>
 <p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
@@ -1527,9 +1530,6 @@ The two main pieces of data to export are the information about the persons in t
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Add another argument for specifying the output file name</p>
 </li>
 </ul>
 </div>
@@ -3359,7 +3359,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 23:58:59 UTC
+Last updated 2018-04-12 01:22:59 UTC
 </div>
 </div>
 </body>
