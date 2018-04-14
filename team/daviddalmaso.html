@@ -240,8 +240,54 @@ All entries under the group friends will be returned to the user as a list.</p>
 <div class="sect2">
 <h3 id="password-code-password-code"><a class="link" href="#password-code-password-code">Password : <code>password</code></a></h3>
 <div class="paragraph">
-<p>Set a password for reInsurance as desired. No password required to access the program.<br>
-Format: <code>password</code> Alias: <code>pw</code></p>
+<p>Set a password for reInsurance as desired. No password required to access the program when using for the first time.<br>
+Format: <code>password</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>password set/yourpassword</code><br>
+Password will be set as yourpassword.</p>
+</li>
+<li>
+<p><code>password change/yournewpassword</code><br>
+Password will be changed to yournewpassword.</p>
+</li>
+<li>
+<p><code>password remove/yourexistingpassword</code><br>
+Password will be removed.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Currently, there are no password recovery mechanism in place.</p>
+</li>
+<li>
+<p>If users forget their password, please delete the password.txt file in the data folder to remove the password.</p>
+</li>
+<li>
+<p>Coming in v2.0, there will be an option to retrieve your lost password via email.</p>
+</li>
+<li>
+<p>Default destination file is at the data folder.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -467,7 +513,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 14:34:17 UTC
+Last updated 2018-04-14 10:05:32 UTC
 </div>
 </div>
 </body>

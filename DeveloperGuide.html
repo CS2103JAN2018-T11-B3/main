@@ -96,6 +96,8 @@
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
 <li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#encryption-and-decryption-behaviour-with-and-without-password">G.4. Encryption and Decryption behaviour with and without password</a></li>
+<li><a href="#exporting-data">G.5. Exporting data</a></li>
 </ul>
 </li>
 </ul>
@@ -1353,6 +1355,9 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <p>As such, we could implement a password to protect the data. The password will be encrypted and store as a local copy.</p>
 </div>
 <div class="paragraph">
+<p>In addition the XML file will be unlocked when the password is entered to allow power users to edit the XML file.</p>
+</div>
+<div class="paragraph">
 <p>The password feature will be created as a class of it&#8217;s own. There will be no default password for ease of use of the program.</p>
 </div>
 <div class="paragraph">
@@ -1440,9 +1445,6 @@ In the event that the users forget their password, the current implementation do
 </div>
 <div class="paragraph">
 <p>In V2.0, the user&#8217;s password will be sent to the email that is linked to the user&#8217;s calendar if requested.</p>
-</div>
-<div class="paragraph">
-<p>In addition the XML file will be unlocked when the password is entered to allow power users to edit the XML file.</p>
 </div>
 <div class="paragraph">
 <p>Lastly, password will be hashed and salted instead of being encrypted with a key.</p>
@@ -2755,88 +2757,82 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have a more organized view of my schedule and at the same time plan for future appointment</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secure my address book by having a password in place</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">export a calendar of my appointments and client birthdays</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">can use the data on a calendar outside of the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">receive notification 3 day prior to my client&#8217;s appointment date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ensure that I will not miss it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">check the history of my command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know what I have done</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">undo the previous command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">retrieve lost information caused by accidents</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">redo the undo actions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">trace what I have undid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">create a new address book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use it for other purposes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">export a portfolio of my clients</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">can use the data of the application elsewhere</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hide some of my client&#8217;s information</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">minimize the leak of my client&#8217;s information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name (by default)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view the address book in an organized manner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">receive notification of my client&#8217;s birthday</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep in touch with my clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add in password access to my address book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be viewed/edited only by allowed users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">change my password</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">further secure my address book</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">forget password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a backup plan</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">request access to other address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">seek potential customer from leaving colleague</p></td>
 </tr>
 </tbody>
 </table>
@@ -3296,10 +3292,21 @@ Expected: The most recent window size and location is retained.</p>
 </ol>
 </div>
 </li>
+<li>
+<p>Closing the program</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the <code>exit</code> command</p>
+</li>
+<li>
+<p>Alternatively, move the mouse over the File section of the navigation bar then clicking <code>exit</code><br>
+Expected: Program should finish with exit code 0. Program should be closed.</p>
+</li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -3322,16 +3329,13 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -3343,15 +3347,113 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: Navigate to the data folder and delete the addressbook.xml file to simulate missing data files</p>
+</li>
+<li>
+<p>Test case: Launch the application<br>
+Expected: reInsurance will launch and populated with the default address book. Add a new entry for the addressbook.xml to be saved in the data directory.</p>
+</li>
+<li>
+<p>Prerequisites: Navigate to the data folder and corrupt the addressbook.xml file to simulate corrupted data files</p>
+</li>
+<li>
+<p>Test case: Launch the application<br>
+Expected: reInsurance will launch with an empty address book.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="encryption-and-decryption-behaviour-with-and-without-password"><a class="link" href="#encryption-and-decryption-behaviour-with-and-without-password">G.4. Encryption and Decryption behaviour with and without password</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Encryption behaviour without password</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Navigate to the data folder and observe the encryption status of the addressbook.xml file</p>
+</li>
+<li>
+<p>Test case: Before launching the application<br>
+Expected: addressbook.xml will be encrypted and not text-editable.</p>
+</li>
+<li>
+<p>Test case: Launch the application<br>
+Expected: addressbook.xml will be decrypted and text-editable.</p>
+</li>
+<li>
+<p>Test case: Close the application<br>
+Expected: addressbook.xml will be encrypted and not text-editable.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Encryption behaviour with password</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Navigate to the data folder and observe the encryption status of the addressbook.xml file</p>
+</li>
+<li>
+<p>Test case: Before launching the application<br>
+Expected: addressbook.xml will be encrypted and not text-editable.</p>
+</li>
+<li>
+<p>Test case: Launch the application<br>
+Expected: addressbook.xml will be encrypted and not text-editable.</p>
+</li>
+<li>
+<p>Test case: Launch the application and enter the correct password+
+Expected: addressbook.xml will be decrypted and text-editable.</p>
+</li>
+<li>
+<p>Test case: Close the application<br>
+Expected: addressbook.xml will be encrypted and not text-editable.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-data"><a class="link" href="#exporting-data">G.5. Exporting data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Exporting the data in the portfolio to a portfolio.csv file</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that there are entries in reInsurance</p>
+</li>
+<li>
+<p>Test case: <code>export portfolio</code><br>
+Expected: export the data in the portfolio to a portfolio.csv file in the root directory</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exporting the data in the portfolio with a specified file name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that there are entries in reInsurance</p>
+</li>
+<li>
+<p>Test case: <code>export mydata</code><br>
+Expected: export the data in the portfolio to a mydata.csv file in the root directory</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -3359,7 +3461,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 14:34:17 UTC
+Last updated 2018-04-14 10:05:32 UTC
 </div>
 </div>
 </body>
