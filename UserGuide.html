@@ -30,23 +30,24 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#getting-count-of-reinsurance-size-code-count-code">3.4. Getting count of reInsurance size : <code>count</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
-<li><a href="#locating-persons-by-tag-code-findtag-code">3.7. Locating persons by tag: <code>findtag</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#sorting-all-entries-code-sort-code">3.13. Sorting all entries : <code>sort</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#export-data-code-export-code">3.15. Export data : <code>export</code></a></li>
-<li><a href="#group-entries-code-group-code">3.16. Group entries : <code>group</code></a></li>
-<li><a href="#password-code-password-code">3.17. Password : <code>password</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.19. Saving the data</a></li>
+<li><a href="#colour-tag-since-v1-2">3.3. Colour Tag [Since V1.2]</a></li>
+<li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
+<li><a href="#getting-count-of-reinsurance-size-code-count-code">3.5. Getting count of reInsurance size : <code>count</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">3.6. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code">3.7. Locating persons by name: <code>find</code></a></li>
+<li><a href="#locating-persons-by-tag-code-findtag-code">3.8. Locating persons by tag: <code>findtag</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.9. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.10. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#sorting-all-entries-code-sort-code">3.14. Sorting all entries : <code>sort</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#export-data-code-export-code">3.16. Export data : <code>export</code></a></li>
+<li><a href="#group-entries-code-group-code">3.17. Group entries : <code>group</code></a></li>
+<li><a href="#password-code-password-code">3.18. Password : <code>password</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -221,34 +222,46 @@ A person can have any number of insurances, to add in the commission of a partic
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Insurance only accept alpha numeric characters and Commission needs to be non-negative
+</td>
+</tr>
+</table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/Jeremy Lee p/82286918 e/sebry9@gmail.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 i/Health[10] i/General{20}</code></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Examples:
+ <code>add n/Jeremy Lee p/82286918 e/sebry9@gmail.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 i/Health[10] i/General{20}</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="colour-tag-since-v1-2"><a class="link" href="#colour-tag-since-v1-2">3.3. Colour Tag [Since V1.2]</a></h3>
+<div class="paragraph">
+<p>Common tags in reInsurances are colour highlighted. Tags input type is non restrictive and up to the user&#8217;s imagination.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all persons in reInsurance.<br>
 Format: <code>list</code> Alias: <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-count-of-reinsurance-size-code-count-code"><a class="link" href="#getting-count-of-reinsurance-size-code-count-code">3.4. Getting count of reInsurance size : <code>count</code></a></h3>
+<h3 id="getting-count-of-reinsurance-size-code-count-code"><a class="link" href="#getting-count-of-reinsurance-size-code-count-code">3.5. Getting count of reInsurance size : <code>count</code></a></h3>
 <div class="paragraph">
 <p>Returns the number of client in reInsurance
 Format: <code>count</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.6. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the reInsurance.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [d/APPOINTMENT] [t/TAG] [i/INSURANCE]&#8230;&#8203;</code> Alias: <code>e</code></p>
@@ -306,7 +319,7 @@ Clearing the application can also be done by moving the mouse over <code>File</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.7. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code> Alias: <code>f</code></p>
@@ -351,7 +364,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-tag-code-findtag-code"><a class="link" href="#locating-persons-by-tag-code-findtag-code">3.7. Locating persons by tag: <code>findtag</code></a></h3>
+<h3 id="locating-persons-by-tag-code-findtag-code"><a class="link" href="#locating-persons-by-tag-code-findtag-code">3.8. Locating persons by tag: <code>findtag</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given tags.<br>
 Format: <code>findtag KEYWORD [MORE_KEYWORDS]</code></p>
@@ -396,7 +409,7 @@ Returns any person having tags <code>Friends</code>, <code>Colleagues</code>, or
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.9. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from reInsurance.<br>
 Format: <code>delete INDEX</code> Alias: <code>d</code></p>
@@ -437,7 +450,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.10. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Format: <code>select INDEX</code> Alias: <code>s</code></p>
@@ -478,7 +491,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -499,7 +512,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores reInsurance to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code> Alias: <code>u</code></p>
@@ -544,7 +557,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code> Alias: <code>r</code></p>
@@ -576,14 +589,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-entries-code-sort-code"><a class="link" href="#sorting-all-entries-code-sort-code">3.13. Sorting all entries : <code>sort</code></a></h3>
+<h3 id="sorting-all-entries-code-sort-code"><a class="link" href="#sorting-all-entries-code-sort-code">3.14. Sorting all entries : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sort all entries from reInsurance by given condition in lexicographical order.<br>
 Format: <code>sort</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from reInsurance.<br>
 Alias: <code>c</code><br>
@@ -603,7 +616,7 @@ Clearing all entries from reInsurance can also be done by moving the mouse over 
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">3.15. Export data : <code>export</code></a></h3>
+<h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">3.16. Export data : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports the data from the specified export type (case insensitive).<br>
 Format: <code>export EXPORT_TYPE</code>
@@ -671,7 +684,7 @@ Exports the data in the portfolio to a <code>my_data.csv</code> file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-entries-code-group-code"><a class="link" href="#group-entries-code-group-code">3.16. Group entries : <code>group</code></a></h3>
+<h3 id="group-entries-code-group-code"><a class="link" href="#group-entries-code-group-code">3.17. Group entries : <code>group</code></a></h3>
 <div class="paragraph">
 <p>Group all entries under the same group from reInsurance.<br>
 Format: <code>group</code> Alias: <code>g</code></p>
@@ -689,7 +702,7 @@ All entries under the group friends will be returned to the user as a list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-code-password-code"><a class="link" href="#password-code-password-code">3.17. Password : <code>password</code></a></h3>
+<h3 id="password-code-password-code"><a class="link" href="#password-code-password-code">3.18. Password : <code>password</code></a></h3>
 <div class="paragraph">
 <p>Set a password for reInsurance as desired. No password required to access the program when using for the first time.<br>
 Format: <code>password</code></p>
@@ -742,7 +755,7 @@ Password will be removed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
@@ -761,7 +774,7 @@ Exiting the application can also be done by moving the mouse over <code>File</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>reInsurance data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually. Data will be encrypted.</p>
@@ -855,7 +868,7 @@ e.g. <code>password set/123</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:55:49 UTC
+Last updated 2018-04-15 12:54:35 UTC
 </div>
 </div>
 </body>
