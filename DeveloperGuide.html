@@ -3716,7 +3716,7 @@ Expected: addressbook.xml will be encrypted and not text-editable.</p>
 </li>
 <li>
 <p>Test case: <code>export portfolio</code><br>
-Expected: export the data in the portfolio to a portfolio.csv file in the root directory</p>
+Expected: export the data in the portfolio to a portfolio.csv file in the directory where the application is being run.</p>
 </li>
 </ol>
 </div>
@@ -3729,8 +3729,22 @@ Expected: export the data in the portfolio to a portfolio.csv file in the root d
 <p>Prerequisites: Ensure that there are entries in reInsurance</p>
 </li>
 <li>
-<p>Test case: <code>export mydata</code><br>
+<p>Test case: <code>export portfolio mydata</code><br>
 Expected: export the data in the portfolio to a mydata.csv file in the root directory</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exporting the birthdays and appointments of the clients stored</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that there are entries in reInsurance</p>
+</li>
+<li>
+<p>Test case: <code>export calendar</code><br>
+Expected: exports the birthdays and appointments to the Google account&#8217;s calendar after granting authorization</p>
 </li>
 </ol>
 </div>
@@ -3743,7 +3757,7 @@ Expected: export the data in the portfolio to a mydata.csv file in the root dire
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:20:15 UTC
+Last updated 2018-04-15 15:26:48 UTC
 </div>
 </div>
 </body>
