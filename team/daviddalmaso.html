@@ -25,7 +25,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>reInsurance is the premier organizational tool for insurance agents around the world. Allowing easy access and management of client information, reInsurance sets out to simplify the mundane administrative tasks of an insurance agent.</p>
 </div>
 </div>
 </div>
@@ -35,17 +35,17 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to export data from the reInsurance application</strong></p>
+<p><strong>Major enhancement</strong>: added an export feature to the reInsurance application</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to export the data from the application to an outside source. The two major pieces of data to export are the calendar events and the portfolio of clients.</p>
+<p>What it does: the newly added export feature allows the user to export internal data from the application to an outside source. More specifically, the two major pieces of data to export are the calendar events and the portfolio of clients.</p>
 </li>
 <li>
-<p>Justification: This feature is crucial to the application since it allows for the reInsurance users to access data from the application when they are unable to use the application (i.e. when using a mobile phone or computer with reInsurance application).</p>
+<p>Justification: This feature is crucial to the application since it allows for the reInsurance users to access important data stored in the application when they are unable to use the actual application itself (i.e. when using a mobile phone or computer with reInsurance application).</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands. The enhancement also allows for more robust features of exporting.</p>
+<p>Highlights: This enhancement builds off already existing features of the reInsurance application and its data. Other parts of the application were fairly unaffected by the enhancement. However, as the reInsurance application grows and stores more information, there are many possible upgrades to be made to the export feature.</p>
 </li>
 <li>
 <p>Credits: <em><a href="https://developers.google.com/calendar/">Google Calendar API</a></em></p>
@@ -54,7 +54,7 @@
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a count command to see the total number of persons in the reInsurance application.</p>
+<p><strong>Minor enhancement</strong>: added a count command to view the total number of persons in the reInsurance application.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/functional/daviddalmaso.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/test/daviddalmaso.md">Test code</a>]</p>
@@ -71,13 +71,13 @@
 <p>Set up initial team organization and repository.</p>
 </li>
 <li>
-<p>Managed release <code>v1.4 - v1.5rc</code> on GitHub</p>
+<p>Managed release <code>v1.4</code> and <code>v1.5rc</code> on GitHub</p>
 </li>
 <li>
-<p>Created jar for release <code>v1.4</code> on Github</p>
+<p>Created jar for release <code>v1.4</code> and <code>v1.5rc</code> on Github</p>
 </li>
 <li>
-<p>Set up Travis CI for team repository to check for build errors.</p>
+<p>Set up Travis CI for team repository to check for build errors: <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/92">#92</a></p>
 </li>
 <li>
 <p>Set up auto publishing of docs for team repository.</p>
@@ -113,10 +113,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/22" class="bare">https://github.com/CS2103JAN2018-T11-B3/main/pull/22</a>, <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/21" class="bare">https://github.com/CS2103JAN2018-T11-B3/main/pull/21</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/22">#22</a>, <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/21">#21</a></p>
 </li>
 <li>
-<p>PRs approved of: <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/17" class="bare">https://github.com/CS2103JAN2018-T11-B3/main/pull/17</a></p>
+<p>PRs approved of: <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/17">#17</a></p>
+</li>
+<li>
+<p>Help with build issues in code outside of my own: <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/26">#26</a></p>
 </li>
 </ul>
 </div>
@@ -126,7 +129,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated Google Calendar API to the project <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/152">#152</a></p>
+<p>Integrated Google Calendar API to the project <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/96">#96</a></p>
 </li>
 </ul>
 </div>
@@ -154,9 +157,8 @@
 <div class="sect2">
 <h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">Export data : <code>export</code></a></h3>
 <div class="paragraph">
-<p>Exports the data from the specified export type (case insensitive).<br>
-Format: <code>export EXPORT_TYPE</code>
-** The <code>EXPORT_TYPE</code> must be either <code>calendar</code> or <code>portfolio</code>.</p>
+<p>Exports the data from the specified export type: <code>calendar</code> or <code>portfolio</code> (case insensitive).<br>
+Format: <code>export EXPORT_TYPE</code></p>
 </div>
 <div class="paragraph">
 <p>Exports the portfolio to a specified export location.<br>
@@ -169,15 +171,31 @@ Format <code>export portfolio FILENAME</code>.</p>
 <ul>
 <li>
 <p><code>export calendar</code><br>
-Exports the data on the calendar to Google Calendar</p>
+Exports the birthday and appointment data to Google Calendar</p>
 <div class="ulist">
 <ul>
 <li>
-<p>When running this command, you will be prompted to enter your credentials to your Google Account.</p>
+<p>When running this command, you will be prompted to enter your credentials to your Google Account. DO NOT EXIT THE BROWSER. This will stall the application.</p>
+</li>
+<li>
+<p>After entering credentials, you will be asked if reInsurance can access your account at a page as pictured in <em>Figure 1</em>.<br></p>
+</li>
+<li>
+<p>Hit <code>ALLOW</code> to proceed the export or <code>CANCEL</code> to deny reInsurance access.</p>
 </li>
 </ul>
 </div>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/calendar_access.png" alt="calendar access" width="600">
+</div>
+<div class="title">Figure 1. Authorization Window</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>export portfolio</code><br>
 Exports the data in the portfolio to a <code>portfolio.csv</code> file.</p>
@@ -201,7 +219,7 @@ Exports the data in the portfolio to a <code>my_data.csv</code> file.</p>
 <p>Coming in v2.0, there will be more options on the types of data to export.</p>
 </li>
 <li>
-<p>As of v1.5rc, the application handles the command for the portfolio and calendar.</p>
+<p>As of v1.5, the application handles the command for the portfolio and calendar.</p>
 </li>
 <li>
 <p>Default destination file is at <code>portfolio.csv</code> for the <code>export portfolio</code> command.</p>
@@ -399,6 +417,13 @@ e.g. <code>password set/123</code></p>
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="view-number-of-persons-code-count-code"><a class="link" href="#view-number-of-persons-code-count-code">View number of persons : <code>count</code></a></h3>
+<div class="paragraph">
+<p>Returns the number of clients stored in the reInsurance application
+Format: <code>count</code></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -428,69 +453,151 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-export-command"><a class="link" href="#aspect-implementation-of-export-command">Aspect: Implementation of Export Command</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Separate the export functionality away from the rest of the commands.</p>
+<p><strong>Alternative 1 (Current)</strong>: Accepts and handles individual export types</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requests can be made without the user needing to craft complicated commands</p>
 </li>
 <li>
-<p>Create a button that exports the data for the user</p>
+<p>Cons: Little flexibly in the ability to specify what data is wanted outside of provided export types</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: General <code>ExportData</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can more flexibly specify export types and what pieces of data to export</p>
+</li>
+<li>
+<p>Cons: More cumbersome to make the export request</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">Aspect: Parameters of export</a></h4>
+<h4 id="aspect-portfolio-export-location"><a class="link" href="#aspect-portfolio-export-location">Aspect: Portfolio export location</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current)</strong>: .csv File</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Common file type that can be uploaded to different applications (i.e. Microsoft Excel)</p>
+</li>
+<li>
+<p>Cons: Ugly file when viewed without application to format the data nicely</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: .pdf File</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ability to layout the data in a way produce a clean looking report of the portfolio</p>
+</li>
+<li>
+<p>Cons: Cannot easily edit contents of the file after it has been created</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="aspect-calendar-export-location"><a class="link" href="#aspect-calendar-export-location">Aspect: Calendar export location</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current)</strong>: Google Calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More practical place to store and view calendar events</p>
+</li>
+<li>
+<p>Cons: Difficulty of set up and room for connectivity errors</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alernative 2</strong>: .ics file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can be uploaded to calendar services other than just Google Calendar</p>
+</li>
+<li>
+<p>Cons: Longer process to get the calendar uploaded (need to go specific service and import the file)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="count-command"><a class="link" href="#count-command">Count command</a></h3>
 <div class="paragraph">
-<p><strong>Since v1.5rc</strong></p>
+<p><strong>Since V1.5</strong></p>
 </div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+<p>The count command allows the users to view the current number of clients stored in the reInsurance application.</p>
 </li>
-<li>
-<p>If the <code>EXPORT_TYPE</code> is <code>portfolio</code>, then another argument is allowed to specify output filename (Format: <code>export portfolio FILENAME</code>).</p>
-</li>
-<li>
-<p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
-</li>
-<li>
-<p>To add another export type to be caught by the user&#8217;s input, simply add another value to the enum class mentioned above.</p>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-countcommand"><a class="link" href="#aspect-implementation-of-countcommand">Aspect: Implementation of CountCommand</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>After adding an export type, an export function for that specific type should be created in the <code>seedu.address.model.AddressBook</code> class.</p>
+<p><strong>Alternative 1 (current)</strong>: Return length of stored <code>Person</code> array</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple implementation. Little room for bugs.</p>
 </li>
 <li>
-<p>After adding the method in <code>AddressBook</code> class, a case should be added to the <code>seedu.address.model.ModelManager</code> class to handle when the export type is equivalent to the newly added one.</p>
+<p>Cons: Does not allow for easy enhancements to be made to the command</p>
 </li>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
+<li>
+<p><strong>Alternative 2 (coming in V2.0)</strong>: Implementation of a more robust <code>Statistics</code> command</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>export</code> function will need to be abstracted out in a way that it can handle all the types of exports allowed by the command.</p>
+<p>Pros: Allows the user to specify different statistics to return about the reInsurance data other than just the number of clients</p>
 </li>
 <li>
-<p>The export file type should be controlled by the arguments of the command.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Example: <code>export portfolio csv</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Should download a portfolio as a csv file onto the user&#8217;s computer</p>
-</li>
-</ul>
-</div>
+<p>Cons: May be a difficult implementation for a feature that could possibly not get very used.</p>
 </li>
 </ul>
 </div>
@@ -499,21 +606,13 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:54:35 UTC
+Last updated 2018-04-15 13:19:08 UTC
 </div>
 </div>
 </body>

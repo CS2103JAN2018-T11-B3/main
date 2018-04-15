@@ -32,7 +32,7 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#colour-tag-since-v1-2">3.3. Colour Tag [Since V1.2]</a></li>
 <li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
-<li><a href="#getting-count-of-reinsurance-size-code-count-code">3.5. Getting count of reInsurance size : <code>count</code></a></li>
+<li><a href="#view-number-of-persons-code-count-code">3.5. View number of persons : <code>count</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.6. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.7. Locating persons by name: <code>find</code></a></li>
 <li><a href="#locating-persons-by-tag-code-findtag-code">3.8. Locating persons by tag: <code>findtag</code></a></li>
@@ -254,9 +254,9 @@ Format: <code>list</code> Alias: <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-count-of-reinsurance-size-code-count-code"><a class="link" href="#getting-count-of-reinsurance-size-code-count-code">3.5. Getting count of reInsurance size : <code>count</code></a></h3>
+<h3 id="view-number-of-persons-code-count-code"><a class="link" href="#view-number-of-persons-code-count-code">3.5. View number of persons : <code>count</code></a></h3>
 <div class="paragraph">
-<p>Returns the number of client in reInsurance
+<p>Returns the number of clients stored in the reInsurance application
 Format: <code>count</code></p>
 </div>
 </div>
@@ -618,9 +618,8 @@ Clearing all entries from reInsurance can also be done by moving the mouse over 
 <div class="sect2">
 <h3 id="export-data-code-export-code"><a class="link" href="#export-data-code-export-code">3.16. Export data : <code>export</code></a></h3>
 <div class="paragraph">
-<p>Exports the data from the specified export type (case insensitive).<br>
-Format: <code>export EXPORT_TYPE</code>
-** The <code>EXPORT_TYPE</code> must be either <code>calendar</code> or <code>portfolio</code>.</p>
+<p>Exports the data from the specified export type: <code>calendar</code> or <code>portfolio</code> (case insensitive).<br>
+Format: <code>export EXPORT_TYPE</code></p>
 </div>
 <div class="paragraph">
 <p>Exports the portfolio to a specified export location.<br>
@@ -633,15 +632,31 @@ Format <code>export portfolio FILENAME</code>.</p>
 <ul>
 <li>
 <p><code>export calendar</code><br>
-Exports the data on the calendar to Google Calendar</p>
+Exports the birthday and appointment data to Google Calendar</p>
 <div class="ulist">
 <ul>
 <li>
-<p>When running this command, you will be prompted to enter your credentials to your Google Account.</p>
+<p>When running this command, you will be prompted to enter your credentials to your Google Account. DO NOT EXIT THE BROWSER. This will stall the application.</p>
+</li>
+<li>
+<p>After entering credentials, you will be asked if reInsurance can access your account at a page as pictured in <em>Figure 1</em>.<br></p>
+</li>
+<li>
+<p>Hit <code>ALLOW</code> to proceed the export or <code>CANCEL</code> to deny reInsurance access.</p>
 </li>
 </ul>
 </div>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar_access.png" alt="calendar access" width="600">
+</div>
+<div class="title">Figure 1. Authorization Window</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>export portfolio</code><br>
 Exports the data in the portfolio to a <code>portfolio.csv</code> file.</p>
@@ -665,7 +680,7 @@ Exports the data in the portfolio to a <code>my_data.csv</code> file.</p>
 <p>Coming in v2.0, there will be more options on the types of data to export.</p>
 </li>
 <li>
-<p>As of v1.5rc, the application handles the command for the portfolio and calendar.</p>
+<p>As of v1.5, the application handles the command for the portfolio and calendar.</p>
 </li>
 <li>
 <p>Default destination file is at <code>portfolio.csv</code> for the <code>export portfolio</code> command.</p>
@@ -868,7 +883,7 @@ e.g. <code>password set/123</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:54:35 UTC
+Last updated 2018-04-15 13:19:08 UTC
 </div>
 </div>
 </body>

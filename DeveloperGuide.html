@@ -46,14 +46,15 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#notifications-with-clients">3.2. Notifications with Clients</a></li>
-<li><a href="#sort-command">3.3. Sort command</a></li>
-<li><a href="#group-command">3.4. Group Command</a></li>
-<li><a href="#insurance-with-information-of-commission">3.5. Insurance with information of commission</a></li>
-<li><a href="#data-encryption">3.6. Data Encryption</a></li>
-<li><a href="#password-feature">3.7. Password feature</a></li>
-<li><a href="#exporting">3.8. Exporting</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#count-command">3.3. Count command</a></li>
+<li><a href="#sort-command">3.4. Sort command</a></li>
+<li><a href="#group-command">3.5. Group Command</a></li>
+<li><a href="#insurance-with-information-of-commission">3.6. Insurance with information of commission</a></li>
+<li><a href="#data-encryption">3.7. Data Encryption</a></li>
+<li><a href="#password-feature">3.8. Password feature</a></li>
+<li><a href="#exporting">3.9. Exporting</a></li>
+<li><a href="#logging">3.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -998,12 +999,64 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-command"><a class="link" href="#sort-command">3.3. Sort command</a></h3>
+<h3 id="count-command"><a class="link" href="#count-command">3.3. Count command</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The count command allows the users to view the current number of clients stored in the reInsurance application.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-countcommand"><a class="link" href="#aspect-implementation-of-countcommand">Aspect: Implementation of CountCommand</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current)</strong>: Return length of stored <code>Person</code> array</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple implementation. Little room for bugs.</p>
+</li>
+<li>
+<p>Cons: Does not allow for easy enhancements to be made to the command</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (coming in V2.0)</strong>: Implementation of a more robust <code>Statistics</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows the user to specify different statistics to return about the reInsurance data other than just the number of clients</p>
+</li>
+<li>
+<p>Cons: May be a difficult implementation for a feature that could possibly not get very used.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-command"><a class="link" href="#sort-command">3.4. Sort command</a></h3>
+<div class="paragraph">
+<p><strong>Since V1.5</strong></p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an undoable command.</p>
 </div>
@@ -1028,7 +1081,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-sortcommand"><a class="link" href="#aspect-implementation-of-sortcommand">Aspect: Implementation of SortCommand</a></h5>
 <div class="ulist">
@@ -1098,12 +1151,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-command"><a class="link" href="#group-command">3.4. Group Command</a></h3>
+<h3 id="group-command"><a class="link" href="#group-command">3.5. Group Command</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Group feature will allow users to group their clients according to a specified group.</p>
 </div>
@@ -1112,7 +1165,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-group"><a class="link" href="#aspect-implementation-of-group">Aspect: Implementation of Group</a></h5>
 <div class="ulist">
@@ -1149,7 +1202,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">3.5. Insurance with information of commission</a></h3>
+<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">3.6. Insurance with information of commission</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.4</strong></p>
 </div>
@@ -1167,7 +1220,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </ul>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-insurance"><a class="link" href="#aspect-implementation-of-insurance">Aspect: Implementation of Insurance</a></h5>
 <div class="imageblock">
@@ -1242,12 +1295,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-encryption"><a class="link" href="#data-encryption">3.6. Data Encryption</a></h3>
+<h3 id="data-encryption"><a class="link" href="#data-encryption">3.7. Data Encryption</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Client’s data is stored in an XML file in plain text is not secure, hence the need to encrypt XML data.</p>
 </div>
@@ -1272,7 +1325,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-secretkey"><a class="link" href="#aspect-implementation-of-secretkey">Aspect: Implementation of SecretKey</a></h5>
 <div class="ulist">
@@ -1342,12 +1395,12 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-feature"><a class="link" href="#password-feature">3.7. Password feature</a></h3>
+<h3 id="password-feature"><a class="link" href="#password-feature">3.8. Password feature</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>As reInsurance contains sensitive client&#8217;s data, apart from encrypting the XML data files, we have to keep it away from prying eyes.</p>
 </div>
@@ -1373,7 +1426,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-password-length-and-strength"><a class="link" href="#aspect-password-length-and-strength">Aspect: Password length and strength</a></h5>
 <div class="ulist">
@@ -1453,9 +1506,9 @@ In the event that the users forget their password, the current implementation do
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting"><a class="link" href="#exporting">3.8. Exporting</a></h3>
+<h3 id="exporting"><a class="link" href="#exporting">3.9. Exporting</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The export command allows the user to export the data that is normally stored within the application to an outside, nicely formatted manner.
 The two main pieces of data to export are the information about the persons in the reInsurance application as well as the birthdays and appointments of each person.</p>
@@ -1465,87 +1518,118 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">3.9.2. Design Considerations</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-export-command"><a class="link" href="#aspect-implementation-of-export-command">3.9.3. Aspect: Implementation of Export Command</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Separate the export functionality away from the rest of the commands.</p>
+<p><strong>Alternative 1 (Current)</strong>: Accepts and handles individual export types</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requests can be made without the user needing to craft complicated commands</p>
 </li>
 <li>
-<p>Create a button that exports the data for the user</p>
+<p>Cons: Little flexibly in the ability to specify what data is wanted outside of provided export types</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: General <code>ExportData</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can more flexibly specify export types and what pieces of data to export</p>
+</li>
+<li>
+<p>Cons: More cumbersome to make the export request</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">3.8.3. Aspect: Parameters of export</a></h4>
-<div class="paragraph">
-<p><strong>Since v1.5rc</strong></p>
+<h4 id="aspect-portfolio-export-location"><a class="link" href="#aspect-portfolio-export-location">3.9.4. Aspect: Portfolio export location</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current)</strong>: .csv File</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Common file type that can be uploaded to different applications (i.e. Microsoft Excel)</p>
+</li>
+<li>
+<p>Cons: Ugly file when viewed without application to format the data nicely</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: .pdf File</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+<p>Pros: Ability to layout the data in a way produce a clean looking report of the portfolio</p>
 </li>
 <li>
-<p>If the <code>EXPORT_TYPE</code> is <code>portfolio</code>, then another argument is allowed to specify output filename (Format: <code>export portfolio FILENAME</code>).</p>
-</li>
-<li>
-<p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
-</li>
-<li>
-<p>To add another export type to be caught by the user&#8217;s input, simply add another value to the enum class mentioned above.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>After adding an export type, an export function for that specific type should be created in the <code>seedu.address.model.AddressBook</code> class.</p>
-</li>
-<li>
-<p>After adding the method in <code>AddressBook</code> class, a case should be added to the <code>seedu.address.model.ModelManager</code> class to handle when the export type is equivalent to the newly added one.</p>
+<p>Cons: Cannot easily edit contents of the file after it has been created</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
+<div class="sect4">
+<h5 id="aspect-calendar-export-location"><a class="link" href="#aspect-calendar-export-location">Aspect: Calendar export location</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>export</code> function will need to be abstracted out in a way that it can handle all the types of exports allowed by the command.</p>
+<p><strong>Alternative 1 (Current)</strong>: Google Calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More practical place to store and view calendar events</p>
 </li>
 <li>
-<p>The export file type should be controlled by the arguments of the command.</p>
+<p>Cons: Difficulty of set up and room for connectivity errors</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alernative 2</strong>: .ics file</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Example: <code>export portfolio csv</code></p>
-<div class="ulist">
-<ul>
+<p>Pros: Can be uploaded to calendar services other than just Google Calendar</p>
+</li>
 <li>
-<p>Should download a portfolio as a csv file onto the user&#8217;s computer</p>
+<p>Cons: Longer process to get the calendar uploaded (need to go specific service and import the file)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1576,7 +1660,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3491,7 +3575,7 @@ Expected: export the data in the portfolio to a mydata.csv file in the root dire
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:54:35 UTC
+Last updated 2018-04-15 13:19:08 UTC
 </div>
 </div>
 </body>

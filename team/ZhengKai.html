@@ -606,74 +606,105 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-export-command"><a class="link" href="#aspect-implementation-of-export-command">Aspect: Implementation of Export Command</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Separate the export functionality away from the rest of the commands.</p>
+<p><strong>Alternative 1 (Current)</strong>: Accepts and handles individual export types</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requests can be made without the user needing to craft complicated commands</p>
 </li>
 <li>
-<p>Create a button that exports the data for the user</p>
+<p>Cons: Little flexibly in the ability to specify what data is wanted outside of provided export types</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: General <code>ExportData</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can more flexibly specify export types and what pieces of data to export</p>
+</li>
+<li>
+<p>Cons: More cumbersome to make the export request</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-parameters-of-export"><a class="link" href="#aspect-parameters-of-export">Aspect: Parameters of export</a></h4>
-<div class="paragraph">
-<p><strong>Since v1.5rc</strong></p>
+<h4 id="aspect-portfolio-export-location"><a class="link" href="#aspect-portfolio-export-location">Aspect: Portfolio export location</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current)</strong>: .csv File</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Common file type that can be uploaded to different applications (i.e. Microsoft Excel)</p>
+</li>
+<li>
+<p>Cons: Ugly file when viewed without application to format the data nicely</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: .pdf File</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+<p>Pros: Ability to layout the data in a way produce a clean looking report of the portfolio</p>
 </li>
 <li>
-<p>If the <code>EXPORT_TYPE</code> is <code>portfolio</code>, then another argument is allowed to specify output filename (Format: <code>export portfolio FILENAME</code>).</p>
-</li>
-<li>
-<p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
-</li>
-<li>
-<p>To add another export type to be caught by the user&#8217;s input, simply add another value to the enum class mentioned above.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>After adding an export type, an export function for that specific type should be created in the <code>seedu.address.model.AddressBook</code> class.</p>
-</li>
-<li>
-<p>After adding the method in <code>AddressBook</code> class, a case should be added to the <code>seedu.address.model.ModelManager</code> class to handle when the export type is equivalent to the newly added one.</p>
+<p>Cons: Cannot easily edit contents of the file after it has been created</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
+<div class="sect4">
+<h5 id="aspect-calendar-export-location"><a class="link" href="#aspect-calendar-export-location">Aspect: Calendar export location</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>export</code> function will need to be abstracted out in a way that it can handle all the types of exports allowed by the command.</p>
+<p><strong>Alternative 1 (Current)</strong>: Google Calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More practical place to store and view calendar events</p>
 </li>
 <li>
-<p>The export file type should be controlled by the arguments of the command.</p>
+<p>Cons: Difficulty of set up and room for connectivity errors</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alernative 2</strong>: .ics file</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Example: <code>export portfolio csv</code></p>
-<div class="ulist">
-<ul>
+<p>Pros: Can be uploaded to calendar services other than just Google Calendar</p>
+</li>
 <li>
-<p>Should download a portfolio as a csv file onto the user&#8217;s computer</p>
+<p>Cons: Longer process to get the calendar uploaded (need to go specific service and import the file)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -2766,74 +2797,105 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">Design Considerations</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-export-command-2"><a class="link" href="#aspect-implementation-of-export-command-2">Aspect: Implementation of Export Command</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Separate the export functionality away from the rest of the commands.</p>
+<p><strong>Alternative 1 (Current)</strong>: Accepts and handles individual export types</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requests can be made without the user needing to craft complicated commands</p>
 </li>
 <li>
-<p>Create a button that exports the data for the user</p>
+<p>Cons: Little flexibly in the ability to specify what data is wanted outside of provided export types</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: General <code>ExportData</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can more flexibly specify export types and what pieces of data to export</p>
+</li>
+<li>
+<p>Cons: More cumbersome to make the export request</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-parameters-of-export-2"><a class="link" href="#aspect-parameters-of-export-2">Aspect: Parameters of export</a></h4>
-<div class="paragraph">
-<p><strong>Since v1.5rc</strong></p>
+<h4 id="aspect-portfolio-export-location-2"><a class="link" href="#aspect-portfolio-export-location-2">Aspect: Portfolio export location</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current)</strong>: .csv File</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Common file type that can be uploaded to different applications (i.e. Microsoft Excel)</p>
+</li>
+<li>
+<p>Cons: Ugly file when viewed without application to format the data nicely</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: .pdf File</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The application will handle the <code>export</code> command with one argument (Format: <code>export EXPORT_TYPE</code>).</p>
+<p>Pros: Ability to layout the data in a way produce a clean looking report of the portfolio</p>
 </li>
 <li>
-<p>If the <code>EXPORT_TYPE</code> is <code>portfolio</code>, then another argument is allowed to specify output filename (Format: <code>export portfolio FILENAME</code>).</p>
-</li>
-<li>
-<p>The export types are from an enum class at <code>seedu.address.model.export.ExportType</code>.</p>
-</li>
-<li>
-<p>To add another export type to be caught by the user&#8217;s input, simply add another value to the enum class mentioned above.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>After adding an export type, an export function for that specific type should be created in the <code>seedu.address.model.AddressBook</code> class.</p>
-</li>
-<li>
-<p>After adding the method in <code>AddressBook</code> class, a case should be added to the <code>seedu.address.model.ModelManager</code> class to handle when the export type is equivalent to the newly added one.</p>
+<p>Cons: Cannot easily edit contents of the file after it has been created</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
+<div class="sect4">
+<h5 id="aspect-calendar-export-location-2"><a class="link" href="#aspect-calendar-export-location-2">Aspect: Calendar export location</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>export</code> function will need to be abstracted out in a way that it can handle all the types of exports allowed by the command.</p>
+<p><strong>Alternative 1 (Current)</strong>: Google Calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More practical place to store and view calendar events</p>
 </li>
 <li>
-<p>The export file type should be controlled by the arguments of the command.</p>
+<p>Cons: Difficulty of set up and room for connectivity errors</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alernative 2</strong>: .ics file</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Example: <code>export portfolio csv</code></p>
-<div class="ulist">
-<ul>
+<p>Pros: Can be uploaded to calendar services other than just Google Calendar</p>
+</li>
 <li>
-<p>Should download a portfolio as a csv file onto the user&#8217;s computer</p>
+<p>Cons: Longer process to get the calendar uploaded (need to go specific service and import the file)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -4791,7 +4853,7 @@ Expected: export the data in the portfolio to a mydata.csv file in the root dire
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:54:35 UTC
+Last updated 2018-04-15 13:19:08 UTC
 </div>
 </div>
 </body>
