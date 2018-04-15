@@ -608,6 +608,14 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I delete an insurance tagged to a Client?<br>
+<strong>A</strong>: Use the edit command, e.g <code>edit 1 i/</code> It is possible to edit current insurance plan with the same function too.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Are there any restriction for the type of Insurance plan?<br>
+<strong>A</strong>: No, as the current market have countless type of insurance plan, and a the same time our product aim to be rigid against future addition of insurance plan, insurance type is thus not restricted as long as it is alpha numeric.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -617,7 +625,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague i/Health[30]</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -633,6 +641,10 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>Findtag</strong> : <code>findtag TAG</code><br>
+e.g. <code>findtag friends</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -672,94 +684,6 @@ e.g. <code>group priority</code></p>
 e.g. <code>password set/123</code></p>
 </li>
 </ul>
-</div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">Adding a person: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a person to reInsurance<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [d/APPOINTMENT] [t/TAG] [i/INSURANCE[COMMISSION]] [g/GROUP] &#8230;&#8203;</code> Alias: <code>a</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags, appointment and insurance plans (including 0) but only one group
-Dates are in the format dd-mm-yyyy
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 d/05-05-2018 g/PRIORITY t/friends i/Health</code></p>
-</li>
-<li>
-<p>`add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 b/29-10-1992 g/friends t/criminal i/General `</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="adding-an-insurance-prefix-i"><a class="link" href="#adding-an-insurance-prefix-i">Adding an insurance: Prefix: "i/"</a></h4>
-<div class="paragraph">
-<p>Add one or more insurance to a person<br>
-Format: <code>i/INSURANCE[COMMISSION]</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of insurances, to add in the commission of a particular insurance simply put the amount immediately after the insurance name and inside a '[]' or a '{}' bracket.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Insurance only accept alpha numeric characters and Commission needs to be non-negative
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:
- <code>add n/Jeremy Lee p/82286918 e/sebry9@gmail.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 i/Health[10] i/General{20}</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="colour-tag-since-v1-2"><a class="link" href="#colour-tag-since-v1-2">Colour Tag [Since V1.2]</a></h3>
-<div class="paragraph">
-<p>Common tags in reInsurances are colour highlighted. Tags input type is non restrictive and up to the user&#8217;s imagination.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">Listing all persons : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in reInsurance.<br>
-Format: <code>list</code> Alias: <code>l</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-number-of-persons-code-count-code"><a class="link" href="#view-number-of-persons-code-count-code">View number of persons : <code>count</code></a></h3>
-<div class="paragraph">
-<p>Returns the number of clients stored in the reInsurance application
-Format: <code>count</code></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">Editing a person : <code>edit</code></a></h3>
@@ -1318,6 +1242,14 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I delete an insurance tagged to a Client?<br>
+<strong>A</strong>: Use the edit command, e.g <code>edit 1 i/</code> It is possible to edit current insurance plan with the same function too.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Are there any restriction for the type of Insurance plan?<br>
+<strong>A</strong>: No, as the current market have countless type of insurance plan, and a the same time our product aim to be rigid against future addition of insurance plan, insurance type is thus not restricted as long as it is alpha numeric.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1327,7 +1259,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague i/Health[30]</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -1345,626 +1277,8 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Count</strong> : <code>count</code></p>
-</li>
-<li>
-<p><strong>Export</strong> : <code>export</code><br>
-e.g. <code>export portfolio</code></p>
-</li>
-<li>
-<p><strong>Sort</strong> : <code>sort</code></p>
-</li>
-<li>
-<p><strong>Group</strong> : <code>group</code><br>
-e.g. <code>group priority</code></p>
-</li>
-<li>
-<p><strong>Password</strong> : <code>password</code><br>
-e.g. <code>password set/123</code></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code-2"><a class="link" href="#editing-a-person-code-edit-code-2">Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the reInsurance.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [d/APPOINTMENT] [t/TAG] [i/INSURANCE]&#8230;&#8203;</code> Alias: <code>e</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be
-provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags or insurance by typing <code>t/</code> for tags and 'i/' for insurances without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Clearing the application can also be done by moving the mouse over <code>File</code> section of the navigation bar then clicking <code>Clear</code>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code-2"><a class="link" href="#locating-persons-by-name-code-find-code-2">Locating persons by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code> Alias: <code>f</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-tag-code-findtag-code-3"><a class="link" href="#locating-persons-by-tag-code-findtag-code-3">Locating persons by tag: <code>findtag</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given tags.<br>
-Format: <code>findtag KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
-</li>
-<li>
-<p>The order of the tags does not matter. e.g. <code>Friends Colleagues</code> will match <code>Colleagues Friends</code></p>
-</li>
-<li>
-<p>Only the tag is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Friend</code> will not match <code>Friends</code></p>
-</li>
-<li>
-<p>Persons matching at least one tag will be returned (i.e. <code>OR</code> search).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find Friends</code><br>
-Returns any person having tag <code>Friends</code></p>
-</li>
-<li>
-<p><code>find Friends Colleagues Neighbours</code><br>
-Returns any person having tags <code>Friends</code>, <code>Colleagues</code>, or <code>Neighbours</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code-3"><a class="link" href="#deleting-a-person-code-delete-code-3">Deleting a person : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified person from reInsurance.<br>
-Format: <code>delete INDEX</code> Alias: <code>d</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the reInsurance.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-select-code-3"><a class="link" href="#selecting-a-person-code-select-code-3">Selecting a person : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
-Format: <code>select INDEX</code> Alias: <code>s</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in reInsurance.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-3"><a class="link" href="#listing-entered-commands-code-history-code-3">Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-3"><a class="link" href="#undoing-previous-command-code-undo-code-3">Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores reInsurance to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code> Alias: <code>u</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify reInsurance&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-3"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-3">Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code> Alias: <code>r</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sorting-all-entries-code-sort-code-3"><a class="link" href="#sorting-all-entries-code-sort-code-3">Sorting all entries : <code>sort</code></a></h3>
-<div class="paragraph">
-<p>Sort all entries from reInsurance by given condition in lexicographical order.<br>
-Format: <code>sort</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-3"><a class="link" href="#clearing-all-entries-code-clear-code-3">Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from reInsurance.<br>
-Alias: <code>c</code><br>
-Format: <code>clear</code> Alias: <code>c</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Clearing all entries from reInsurance can also be done by moving the mouse over <code>File</code> section of the navigation bar then clicking <code>Clear</code>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="export-data-code-export-code-3"><a class="link" href="#export-data-code-export-code-3">Export data : <code>export</code></a></h3>
-<div class="paragraph">
-<p>Exports the data from the specified export type: <code>calendar</code> or <code>portfolio</code> (case insensitive).<br>
-Format: <code>export EXPORT_TYPE</code></p>
-</div>
-<div class="paragraph">
-<p>Exports the portfolio to a specified export location.<br>
-Format <code>export portfolio FILENAME</code>.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>export calendar</code><br>
-Exports the birthday and appointment data to Google Calendar</p>
-<div class="ulist">
-<ul>
-<li>
-<p>When running this command, you will be prompted to enter your credentials to your Google Account. DO NOT EXIT THE BROWSER. This will stall the application.</p>
-</li>
-<li>
-<p>After entering credentials, you will be asked if reInsurance can access your account at a page as pictured in <em>Figure 1</em>.<br></p>
-</li>
-<li>
-<p>Hit <code>ALLOW</code> to proceed the export or <code>CANCEL</code> to deny reInsurance access.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/calendar_access.png" alt="calendar access" width="600">
-</div>
-<div class="title">Figure 3. Authorization Window</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>export portfolio</code><br>
-Exports the data in the portfolio to a <code>portfolio.csv</code> file.</p>
-</li>
-<li>
-<p><code>export portfolio my_data</code><br>
-Exports the data in the portfolio to a <code>my_data.csv</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Coming in v2.0, there will be more options on the types of data to export.</p>
-</li>
-<li>
-<p>As of v1.5, the application handles the command for the portfolio and calendar.</p>
-</li>
-<li>
-<p>Default destination file is at <code>portfolio.csv</code> for the <code>export portfolio</code> command.</p>
-</li>
-<li>
-<p>The default calendar created in Google Calendars is titled <code>reInsurance Events</code>, which contains birthdays and appointments.</p>
-</li>
-<li>
-<p>Coming in v2.0, the user will be able to specify what the created calendar is called.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="group-entries-code-group-code-3"><a class="link" href="#group-entries-code-group-code-3">Group entries : <code>group</code></a></h3>
-<div class="paragraph">
-<p>Group all entries under the same group from reInsurance.<br>
-Format: <code>group</code> Alias: <code>g</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>group friends</code><br>
-All entries under the group friends will be returned to the user as a list.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="password-code-password-code-3"><a class="link" href="#password-code-password-code-3">Password : <code>password</code></a></h3>
-<div class="paragraph">
-<p>Set a password for reInsurance as desired. No password required to access the program when using for the first time.<br>
-Format: <code>password</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>password set/yourpassword</code><br>
-Password will be set as yourpassword.</p>
-</li>
-<li>
-<p><code>password change/yournewpassword</code><br>
-Password will be changed to yournewpassword.</p>
-</li>
-<li>
-<p><code>password remove/yourexistingpassword</code><br>
-Password will be removed.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Currently, there are no password recovery mechanism in place.</p>
-</li>
-<li>
-<p>If users forget their password, please delete the password.txt file in the data folder to remove the password.</p>
-</li>
-<li>
-<p>Coming in v2.0, there will be an option to retrieve your lost password via email.</p>
-</li>
-<li>
-<p>Default destination file is at the data folder.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-3"><a class="link" href="#exiting-the-program-code-exit-code-3">Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Exiting the application can also be done by moving the mouse over <code>File</code> section of the navigation bar then clicking <code>Exit</code>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data-3"><a class="link" href="#saving-the-data-3">Saving the data</a></h3>
-<div class="paragraph">
-<p>reInsurance data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually. Data will be encrypted.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The standard version of the JRE/JDK are under export restrictions. That also includes that some cryptographic algorithms are not allowed to be shipped in the standard version.
-Replace files in library with Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 8. Download the files <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">Here</a>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq-3"><a class="link" href="#faq-3">FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary-3"><a class="link" href="#command-summary-3">Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Findtag</strong> : <code>findtag TAG</code><br>
+e.g. <code>findtag friends</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -2147,7 +1461,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:40:37 UTC
+Last updated 2018-04-15 14:14:39 UTC
 </div>
 </div>
 </body>

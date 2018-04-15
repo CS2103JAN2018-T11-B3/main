@@ -39,22 +39,32 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Allows the user to add in multiple insurance plans that their client have subscribed to. It also allow the commission that the insurance agent receive from the particular insurance to be added in. Afterwhich, the insurance agent can also view the total commission gained from that particular client.</p>
+<p>What it does: Allows the user to add in multiple insurance plans that their client have subscribed to. It also allow the commission that the insurance agent receive from the particular insurance to be added in. Afterwhich, the insurance agent can also view the total commission gained from that particular client. User can also modify/delete the insurance or commission of a respective client by editing it directly.</p>
 </li>
 <li>
-<p>Justification: The main purpose of an insurance agent is to gain more client to subscribe for their insurance plan, as the number of client increase, it may get increasing difficult to handle data&#8217;s of clients thus the need to organize information.</p>
+<p>Justification: The main purpose of an insurance agent is to gain more client to subscribe for their insurance plan, as the number of client increase, it may get increasing difficult to handle data&#8217;s of clients thus the need to organize information. With the use of reInsurance, insurance agent client will be more organized, resulting in more effort spent socializing with both existing clients and potential client so as to further expand their business.</p>
 </li>
 <li>
-<p>Highlights: The implementation of this feature prove to be challenging for the part where multiple component needs to be edited.</p>
+<p>Highlights: The implementation of this feature prove to be challenging for the part where multiple component needs to be edited. Mainly the problem faced was to connect everything up together yet not breaking the application.</p>
 </li>
 <li>
-<p>Credits: Coding forums for the inspiration given.</p>
+<p>Credits: Coding forums for the inspiration given and teammate for the support.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added alias command for most existing commands such as add, edit, redo, undo etc.</p>
+<p><strong>Minor enhancement</strong>: Added alias command for most existing commands such as add, edit, redo, undo etc.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: To increase the efficiency of using the application, especially for experienced user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Color tagged some associated and common tags for easier grouping while ensuring a default color code for other tags.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/functional/Sebry9.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/test/Sebry9.md">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -71,10 +81,22 @@
 <p>Monitoring the documentation status of the project.</p>
 </li>
 <li>
+<p>Open and close most milestone since the start of the usage of milestones.</p>
+</li>
+<li>
+<p>Assigned weekly user stories to be completed to milestones.</p>
+</li>
+<li>
 <p>Organise weekly meeting to distribute workload.</p>
 </li>
 <li>
-<p>Project&#8217;s time keeper.</p>
+<p>Assign weekly compulsory issue for individual teammate to handle.</p>
+</li>
+<li>
+<p>Project&#8217;s time keeper by ensuring every team member is not lacking behind.</p>
+</li>
+<li>
+<p>Resolved high priority issue of project test code totally invalid of running : <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/76">#76</a></p>
 </li>
 <li>
 <p>Resolved Code style issues within the project caused by teammates(Including myself) : <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/72/files">#72</a></p>
@@ -91,6 +113,9 @@
 <ul>
 <li>
 <p>Updated the Tag color scheme (Pull requests <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/6">#6</a>)</p>
+</li>
+<li>
+<p>Updated UI of the personCard of client.</p>
 </li>
 </ul>
 </div>
@@ -115,6 +140,43 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="alias-of-commands-since-v1-2"><a class="link" href="#alias-of-commands-since-v1-2">Alias of commands [Since V1.2]</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Most of the common commands that are often used is tagged with an "Alias: " note.<br></p>
+</li>
+<li>
+<p>If the features do not display any alias, it can be assumed to have none.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Alias feature can be easily used by replacing current command word with the alias
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>a n/Jeremy p/82286918 e/sebry9@gmail.com a/427, Yishun Ave 11 b/09-07-1995</code></p>
+</li>
+<li>
+<p><code>e 1 i/General[200]</code></p>
+</li>
+</ul>
+</div>
 <div class="sect3">
 <h4 id="adding-an-insurance-prefix-i"><a class="link" href="#adding-an-insurance-prefix-i">Adding an insurance: Prefix: "i/"</a></h4>
 <div class="paragraph">
@@ -150,11 +212,25 @@ Insurance only accept alpha numeric characters and Commission needs to be non-ne
  <code>add n/Jeremy Lee p/82286918 e/sebry9@gmail.com a/311, Clementi Ave 2, #02-25 b/09-12-1994 i/Health[10] i/General{20}</code></p>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="colour-tag-since-v1-2"><a class="link" href="#colour-tag-since-v1-2">Colour Tag [Since V1.2]</a></h3>
 <div class="paragraph">
 <p>Common tags in reInsurances are colour highlighted. Tags input type is non restrictive and up to the user&#8217;s imagination.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I delete an insurance tagged to a Client?<br>
+<strong>A</strong>: Use the edit command, e.g <code>edit 1 i/</code> It is possible to edit current insurance plan with the same function too.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Are there any restriction for the type of Insurance plan?<br>
+<strong>A</strong>: No, as the current market have countless type of insurance plan, and a the same time our product aim to be rigid against future addition of insurance plan, insurance type is thus not restricted as long as it is alpha numeric.</p>
 </div>
 </div>
 </div>
@@ -222,7 +298,7 @@ Insurance only accept alpha numeric characters and Commission needs to be non-ne
 <h5 id="aspect-implementation-of-insurance"><a class="link" href="#aspect-implementation-of-insurance">Aspect: Implementation of Insurance</a></h5>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Sebry9.jpg/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
+<img src="../images/InsuranceClassInModel.png" alt="InsuranceClassInModel" width="790">
 </div>
 </div>
 <div class="ulist">
@@ -261,7 +337,7 @@ Insurance only accept alpha numeric characters and Commission needs to be non-ne
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, everytime a insurance is added it will add to existing commission</p>
+<p><strong>Alternative 1(current choice):</strong> Commission is tagged to person, when a insurance is added it will add to existing commission</p>
 <div class="ulist">
 <ul>
 <li>
@@ -288,6 +364,59 @@ Insurance only accept alpha numeric characters and Commission needs to be non-ne
 </li>
 </ul>
 </div>
+</div>
+<div class="sect4">
+<h5 id="aspect-editing-and-removing-of-insurance"><a class="link" href="#aspect-editing-and-removing-of-insurance">Aspect: Editing and Removing of Insurance</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use current edit command and add on the capability to replace the new set of insurance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Increase usability as user do not need to learn how to use a new function and just make use of existing commands</p>
+</li>
+<li>
+<p>Cons: User lose the ability to edit individual insurance plan as the current edit implementation simply remove old insurance and add in the new set</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Add in another command specifically just for editing of insurance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Individual insurance plan can now be edited.</p>
+</li>
+<li>
+<p>Cons: User need to know another set of command and may prove to be confusing since it share the same nature as a current command(edit).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storing-insurance"><a class="link" href="#aspect-storing-insurance">Aspect: Storing Insurance</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> An XML file is created for insurance plan to be stored</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easily managed as the behavior is similar to tag</p>
+</li>
+<li>
+<p>Cons: Unsure of usage apart from storing the data and checking duplicate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <hr>
 </div>
 </div>
@@ -297,7 +426,7 @@ Insurance only accept alpha numeric characters and Commission needs to be non-ne
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:40:37 UTC
+Last updated 2018-04-15 14:14:39 UTC
 </div>
 </div>
 </body>

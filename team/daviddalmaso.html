@@ -356,6 +356,14 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous reInsurance folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I delete an insurance tagged to a Client?<br>
+<strong>A</strong>: Use the edit command, e.g <code>edit 1 i/</code> It is possible to edit current insurance plan with the same function too.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Are there any restriction for the type of Insurance plan?<br>
+<strong>A</strong>: No, as the current market have countless type of insurance plan, and a the same time our product aim to be rigid against future addition of insurance plan, insurance type is thus not restricted as long as it is alpha numeric.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -365,7 +373,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague</code></p>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/09-09-1995 t/friend t/colleague i/Health[30]</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -381,6 +389,10 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>Findtag</strong> : <code>findtag TAG</code><br>
+e.g. <code>findtag friends</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -616,7 +628,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:40:37 UTC
+Last updated 2018-04-15 14:14:39 UTC
 </div>
 </div>
 </body>
