@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Kion Shi Rong - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Kion Shi Rong - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-reinsurance"><a class="link" href="#project-reinsurance">PROJECT: reInsurance</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>reInsurance is adapted from <a href="https://github.com/nus-cs2103-AY1718S2/addressbook-level4">AddressBook - Level 4</a>, a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC. The application is aimed at insurance agents to provide them with a centralised system to keep track of their clients. It provide a calendar view which allows the user to have a good overview of upcoming appointments with their clients as well as their birthdays to keep in touch. This application also features calculation of commissions earned from clients so as to facilitate the insurance agent in deciding which customer has a higher priority.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added birthday and appointments with a calendar view using Google Calendar API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the users to keep track of the birthday and appointment dates with clients. The calendar view allows the user to have a good over view of the dates.</p>
+</li>
+<li>
+<p>Justification: Allowing the user to record appointments and birthdays are important to the product as these are formation which aids in a centralised management system of clients for an insurance agent. Furthermore, the calendar view allows a good overview which is key when planning for the week or month ahead.</p>
+</li>
+<li>
+<p>Highlights: This enhancement includes the use of Google Calendar API which allows for much more future possibilities to integrate with Google. The feature for authentication with Google APIs have been done which would make integrating with other Google APIs in the future easier.</p>
+</li>
+<li>
+<p>Credits: <em><a href="https://developers.google.com/calendar/">Google Calendar API</a></em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a findtag command that allows the user to find clients by tag(s).</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/functional/cambioforma.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T11-B3/main/blob/master/collated/test/cambioforma.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed release <code>v1.3</code> on GitHub</p>
+</li>
+<li>
+<p>Updated all test cases for <code>v1.3</code> on GitHub <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/73">#73</a> <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/74">#74</a></p>
+</li>
+<li>
+<p>Created Jar file for <code>v1.3</code> to <code>v1.5</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues/146">1</a>, <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues/166">2</a>, <a href="https://github.com/CS2103JAN2018-T09-B1/main/issues/178">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Google Calendar API to the project <a href="https://github.com/CS2103JAN2018-T11-B3/main/pull/152">#152</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="locating-persons-by-tag-code-findtag-code"><a class="link" href="#locating-persons-by-tag-code-findtag-code">Locating persons by tag: <code>findtag</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose names contain any of the given tags.<br>
+Format: <code>findtag KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>The order of the tags does not matter. e.g. <code>Friends Colleagues</code> will match <code>Colleagues Friends</code></p>
+</li>
+<li>
+<p>Only the tag is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Friend</code> will not match <code>Friends</code></p>
+</li>
+<li>
+<p>Persons matching at least one tag will be returned (i.e. <code>OR</code> search).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Friends</code><br>
+Returns any person having tag <code>Friends</code></p>
+</li>
+<li>
+<p><code>find Friends Colleagues Neighbours</code><br>
+Returns any person having tags <code>Friends</code>, <code>Colleagues</code>, or <code>Neighbours</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">Editing a person : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing person in the reInsurance.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [d/APPOINTMENT] [t/TAG] [i/INSURANCE]&#8230;&#8203;</code> Alias: <code>e</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be
+provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s tags or insurance by typing <code>t/</code> for tags and 'i/' for insurances without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Clearing the application can also be done by moving the mouse over <code>File</code> section of the navigation bar then clicking <code>Clear</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="notifications-with-clients"><a class="link" href="#notifications-with-clients">Notifications with Clients</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The idea for this feature is to allow users to receive notifications for matters regarding their clients.
+This is so that the user will be able to be reminded of matters regarding their many clients and not lose track of events.
+A calendar view also provided so that it is easier for the user to have a good overview of the upcoming events as well as events in the month.</p>
+</div>
+<div class="paragraph">
+<p>Appointments and Birthdays will be created as a class on it&#8217;s own. It is then added as an attribute of the person class.
+The calendar view will then check all persons for any appointments and birthday and display them accordingly.
+It will then trigger a notification when it is the day of the event.</p>
+</div>
+<div class="paragraph">
+<p>Appointments prefix "d/" has been added to the add command so that users can add appointments with the person.
+Birthday prefix "b/" has been added to the add command so that users can add the birthday of clients.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-birthdays-since-v1-5rc"><a class="link" href="#aspect-implementation-of-birthdays-since-v1-5rc">Aspect: Implementation of Birthdays (Since v1.5rc)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Birthdays as an attribute of Person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Birthdays are merged with existing commands as a prefix</p>
+</li>
+<li>
+<p>Cons: Unable to add more attributes to birthday without breaking current convention</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Birthdays as class with Person as an attribute</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Other attributes can be added to birthdays e.g Location</p>
+</li>
+<li>
+<p>Cons: A lot of restructuring of existing code required</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-appointments-since-v1-5rc"><a class="link" href="#aspect-implementation-of-appointments-since-v1-5rc">Aspect: Implementation of Appointments (Since v1.5rc)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Appointments as an attribute of Person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Appointments are merged with existing commands as a prefix</p>
+</li>
+<li>
+<p>Cons: Unable to add more attributes to appointment without breaking current convention</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Appointments as class with Person as an attribute</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Other attributes can be added to appointments e.g Location</p>
+</li>
+<li>
+<p>Cons: A lot of restructuring of existing code required</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-viewing-appointments-since-v1-5rc"><a class="link" href="#aspect-implementation-of-viewing-appointments-since-v1-5rc">Aspect: Implementation of viewing Appointments (Since v1.5rc)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation View as Calendar View</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to have an overview for the current month</p>
+</li>
+<li>
+<p>Cons: Requires more display space and limits views by month</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of View as List</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to integrate with current set up and can view more information in a smaller space</p>
+</li>
+<li>
+<p>Cons: Have to read each date of each event to get a general feel of the upcoming events</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-notifications-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-notifications-coming-in-v2-0">Aspect: Implementation of Notifications (Coming in v2.0)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Notifications as a side panel</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Notifications are neatly organised and easily reviewed</p>
+</li>
+<li>
+<p>Cons: Notifications might be missed if user does not review them</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Notifications as a Popup Alert</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Requires user interaction therefore it ensures that user has been notified</p>
+</li>
+<li>
+<p>Cons: Pop ups might be unwelcome as they can interrupt current user tasks</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-person-by-tag-feature"><a class="link" href="#find-person-by-tag-feature">Find person by tag feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The idea for this features is to allow users to find persons by their tag(s).
+Some insurance policies are targeted to a certain group of people, e.g married.
+This is so that the user will be able to view persons that belong to certain categories as they will have certain tag(s) which will represent categories of clients.
+The feature can be used via the <code>findtag</code> command</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-findtag-command-since-v1-3"><a class="link" href="#aspect-implementation-of-findtag-command-since-v1-3">Aspect: Implementation of findtag command (Since v1.3)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of findtag as a new command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Command is easy to use</p>
+</li>
+<li>
+<p>Cons: Unable to find person by both person tag and person name</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of findtag as part of the find command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to find person by both person tag and person name</p>
+</li>
+<li>
+<p>Cons: Takes slightly longer to find a person by tag</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-find-command-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-find-command-coming-in-v2-0">Aspect: Implementation of find command (Coming in v2.0)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> find command can find by name and/or tag(s)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: find command has increased search flexibility</p>
+</li>
+<li>
+<p>Cons: find and findtag command has overlapping functionality</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> findtag command can find by name and/or tag(s)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: findtag command has increased search flexibility</p>
+</li>
+<li>
+<p>Cons: Less intuitive as findtag is more specific to tags only</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-15 15:20:15 UTC
+</div>
+</div>
+</body>
+</html>

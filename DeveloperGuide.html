@@ -45,16 +45,17 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#notifications-with-clients">3.2. Notifications with Clients</a></li>
-<li><a href="#count-command">3.3. Count command</a></li>
-<li><a href="#sort-command">3.4. Sort command</a></li>
-<li><a href="#group-command">3.5. Group Command</a></li>
-<li><a href="#insurance-with-information-of-commission">3.6. Insurance with information of commission</a></li>
-<li><a href="#data-encryption">3.7. Data Encryption</a></li>
-<li><a href="#password-feature">3.8. Password feature</a></li>
-<li><a href="#exporting">3.9. Exporting</a></li>
-<li><a href="#logging">3.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
+<li><a href="#find-person-by-tag-feature">3.2. Find person by tag feature</a></li>
+<li><a href="#notifications-with-clients">3.3. Notifications with Clients</a></li>
+<li><a href="#count-command">3.4. Count command</a></li>
+<li><a href="#sort-command">3.5. Sort command</a></li>
+<li><a href="#group-command">3.6. Group Command</a></li>
+<li><a href="#insurance-with-information-of-commission">3.7. Insurance with information of commission</a></li>
+<li><a href="#data-encryption">3.8. Data Encryption</a></li>
+<li><a href="#password-feature">3.9. Password feature</a></li>
+<li><a href="#exporting">3.10. Exporting</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -877,11 +878,92 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="notifications-with-clients"><a class="link" href="#notifications-with-clients">3.2. Notifications with Clients</a></h3>
+<h3 id="find-person-by-tag-feature"><a class="link" href="#find-person-by-tag-feature">3.2. Find person by tag feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The idea for this feature is to allow users to recieve notifications for matters regarding their clients.
+<p>The idea for this features is to allow users to find persons by their tag(s).
+Some insurance policies are targeted to a certain group of people, e.g married.
+This is so that the user will be able to view persons that belong to certain categories as they will have certain tag(s) which will represent categories of clients.
+The feature can be used via the <code>findtag</code> command</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-findtag-command-since-v1-3"><a class="link" href="#aspect-implementation-of-findtag-command-since-v1-3">Aspect: Implementation of findtag command (Since v1.3)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of findtag as a new command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Command is easy to use</p>
+</li>
+<li>
+<p>Cons: Unable to find person by both person tag and person name</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of findtag as part of the find command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to find person by both person tag and person name</p>
+</li>
+<li>
+<p>Cons: Takes slightly longer to find a person by tag</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-find-command-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-find-command-coming-in-v2-0">Aspect: Implementation of find command (Coming in v2.0)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> find command can find by name and/or tag(s)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: find command has increased search flexibility</p>
+</li>
+<li>
+<p>Cons: find and findtag command has overlapping functionality</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> findtag command can find by name and/or tag(s)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: findtag command has increased search flexibility</p>
+</li>
+<li>
+<p>Cons: Less intuitive as findtag is more specific to tags only</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="notifications-with-clients"><a class="link" href="#notifications-with-clients">3.3. Notifications with Clients</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The idea for this feature is to allow users to receive notifications for matters regarding their clients.
 This is so that the user will be able to be reminded of matters regarding their many clients and not lose track of events.
 A calendar view also provided so that it is easier for the user to have a good overview of the upcoming events as well as events in the month.</p>
 </div>
@@ -896,7 +978,40 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-birthdays-since-v1-5rc"><a class="link" href="#aspect-implementation-of-birthdays-since-v1-5rc">Aspect: Implementation of Birthdays (Since v1.5rc)</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Implementation of Birthdays as an attribute of Person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Birthdays are merged with existing commands as a prefix</p>
+</li>
+<li>
+<p>Cons: Unable to add more attributes to birthday without breaking current convention</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementation of Birthdays as class with Person as an attribute</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Other attributes can be added to birthdays e.g Location</p>
+</li>
+<li>
+<p>Cons: A lot of restructuring of existing code required</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect4">
 <h5 id="aspect-implementation-of-appointments-since-v1-5rc"><a class="link" href="#aspect-implementation-of-appointments-since-v1-5rc">Aspect: Implementation of Appointments (Since v1.5rc)</a></h5>
 <div class="ulist">
@@ -909,7 +1024,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <p>Pros: Appointments are merged with existing commands as a prefix</p>
 </li>
 <li>
-<p>Cons: Unable to add more attributes to appointment without breaking current convension</p>
+<p>Cons: Unable to add more attributes to appointment without breaking current convention</p>
 </li>
 </ul>
 </div>
@@ -931,7 +1046,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-implementation-of-viewing-appointments-coming-in-v2-0"><a class="link" href="#aspect-implementation-of-viewing-appointments-coming-in-v2-0">Aspect: Implementation of viewing Appointments (Coming in V2.0)</a></h5>
+<h5 id="aspect-implementation-of-viewing-appointments-since-v1-5rc"><a class="link" href="#aspect-implementation-of-viewing-appointments-since-v1-5rc">Aspect: Implementation of viewing Appointments (Since v1.5rc)</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -988,7 +1103,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 <p>Pros: Requires user interaction therefore it ensures that user has been notified</p>
 </li>
 <li>
-<p>Cons: Pop ups might be unwelcomed as they can interupt current user tasks</p>
+<p>Cons: Pop ups might be unwelcome as they can interrupt current user tasks</p>
 </li>
 </ul>
 </div>
@@ -999,12 +1114,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="count-command"><a class="link" href="#count-command">3.3. Count command</a></h3>
+<h3 id="count-command"><a class="link" href="#count-command">3.4. Count command</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1014,7 +1129,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-countcommand"><a class="link" href="#aspect-implementation-of-countcommand">Aspect: Implementation of CountCommand</a></h5>
 <div class="ulist">
@@ -1051,12 +1166,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-command"><a class="link" href="#sort-command">3.4. Sort command</a></h3>
+<h3 id="sort-command"><a class="link" href="#sort-command">3.5. Sort command</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort command allows the users to sort their clients according to the lexicographical order of their name. It is facilitated by a custom comparator. The sort command would be implemented as an undoable command.</p>
 </div>
@@ -1081,7 +1196,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-sortcommand"><a class="link" href="#aspect-implementation-of-sortcommand">Aspect: Implementation of SortCommand</a></h5>
 <div class="ulist">
@@ -1151,12 +1266,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-command"><a class="link" href="#group-command">3.5. Group Command</a></h3>
+<h3 id="group-command"><a class="link" href="#group-command">3.6. Group Command</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Group feature will allow users to group their clients according to a specified group.</p>
 </div>
@@ -1165,7 +1280,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-group"><a class="link" href="#aspect-implementation-of-group">Aspect: Implementation of Group</a></h5>
 <div class="ulist">
@@ -1202,7 +1317,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">3.6. Insurance with information of commission</a></h3>
+<h3 id="insurance-with-information-of-commission"><a class="link" href="#insurance-with-information-of-commission">3.7. Insurance with information of commission</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.4</strong></p>
 </div>
@@ -1220,7 +1335,7 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </ul>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.1. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-insurance"><a class="link" href="#aspect-implementation-of-insurance">Aspect: Implementation of Insurance</a></h5>
 <div class="imageblock">
@@ -1348,12 +1463,12 @@ Birthday prefix "b/" has been added to the add command so that users can add the
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-encryption"><a class="link" href="#data-encryption">3.7. Data Encryption</a></h3>
+<h3 id="data-encryption"><a class="link" href="#data-encryption">3.8. Data Encryption</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Client’s data is stored in an XML file in plain text is not secure, hence the need to encrypt XML data.</p>
 </div>
@@ -1378,7 +1493,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-secretkey"><a class="link" href="#aspect-implementation-of-secretkey">Aspect: Implementation of SecretKey</a></h5>
 <div class="ulist">
@@ -1448,12 +1563,12 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-feature"><a class="link" href="#password-feature">3.8. Password feature</a></h3>
+<h3 id="password-feature"><a class="link" href="#password-feature">3.9. Password feature</a></h3>
 <div class="paragraph">
 <p><strong>Since V1.5</strong></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>As reInsurance contains sensitive client&#8217;s data, apart from encrypting the XML data files, we have to keep it away from prying eyes.</p>
 </div>
@@ -1479,7 +1594,7 @@ Replace files in library with Java Cryptography Extension (JCE) Unlimited Streng
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">3.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-password-length-and-strength"><a class="link" href="#aspect-password-length-and-strength">Aspect: Password length and strength</a></h5>
 <div class="ulist">
@@ -1559,9 +1674,9 @@ In the event that the users forget their password, the current implementation do
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting"><a class="link" href="#exporting">3.9. Exporting</a></h3>
+<h3 id="exporting"><a class="link" href="#exporting">3.10. Exporting</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The export command allows the user to export the data that is normally stored within the application to an outside, nicely formatted manner.
 The two main pieces of data to export are the information about the persons in the reInsurance application as well as the birthdays and appointments of each person.</p>
@@ -1571,11 +1686,11 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">3.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">3.10.2. Design Considerations</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="aspect-implementation-of-export-command"><a class="link" href="#aspect-implementation-of-export-command">3.9.3. Aspect: Implementation of Export Command</a></h4>
+<h4 id="aspect-implementation-of-export-command"><a class="link" href="#aspect-implementation-of-export-command">3.10.3. Aspect: Implementation of Export Command</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1608,7 +1723,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-portfolio-export-location"><a class="link" href="#aspect-portfolio-export-location">3.9.4. Aspect: Portfolio export location</a></h4>
+<h4 id="aspect-portfolio-export-location"><a class="link" href="#aspect-portfolio-export-location">3.10.4. Aspect: Portfolio export location</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1675,14 +1790,14 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1713,7 +1828,7 @@ The two main pieces of data to export are the information about the persons in t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3628,7 +3743,7 @@ Expected: export the data in the portfolio to a mydata.csv file in the root dire
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 14:14:39 UTC
+Last updated 2018-04-15 15:20:15 UTC
 </div>
 </div>
 </body>
